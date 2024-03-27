@@ -1,0 +1,3 @@
+run dxf2
+Scalefactor: 0.001
+Fusion 360: Unit Zoll
