@@ -11173,6 +11173,34 @@ SC89</description>
 <rectangle x1="-0.8801" y1="4.85" x2="-0.3899" y2="5.9501" layer="21"/>
 <rectangle x1="-2.1501" y1="4.85" x2="-1.6599" y2="5.9501" layer="21"/>
 </package>
+<package name="DT15-12P">
+<pad name="2" x="-4.56" y="-6.67" drill="1.88"/>
+<pad name="8" x="4.56" y="-6.67" drill="1.88"/>
+<pad name="1" x="-4.56" y="-11.11" drill="1.88"/>
+<pad name="7" x="4.56" y="-11.11" drill="1.88"/>
+<hole x="-10.67" y="17.54" drill="3.5"/>
+<hole x="10.67" y="17.54" drill="3.5"/>
+<hole x="-10.67" y="-17.54" drill="3.5"/>
+<hole x="10.67" y="-17.54" drill="3.5"/>
+<wire x1="-17.625" y1="23.285" x2="-11.43" y2="29.605" width="0.4064" layer="21" curve="-90"/>
+<wire x1="-11.43" y1="29.605" x2="11.43" y2="29.605" width="0.4064" layer="21"/>
+<wire x1="11.43" y1="29.605" x2="17.625" y2="23.285" width="0.4064" layer="21" curve="-90"/>
+<wire x1="17.625" y1="23.285" x2="17.625" y2="-23.285" width="0.4064" layer="21"/>
+<wire x1="17.625" y1="-23.285" x2="11.43" y2="-29.605" width="0.4064" layer="21" curve="-90"/>
+<wire x1="11.43" y1="-29.605" x2="-11.43" y2="-29.605" width="0.4064" layer="21"/>
+<wire x1="-11.43" y1="-29.605" x2="-17.625" y2="-23.285" width="0.4064" layer="21" curve="-90"/>
+<wire x1="-17.625" y1="-23.285" x2="-17.625" y2="23.285" width="0.4064" layer="21"/>
+<text x="0" y="0.635" size="1.016" layer="25" align="center">&gt;name</text>
+<text x="0" y="-0.635" size="1.016" layer="27" align="center">&gt;value</text>
+<pad name="3" x="-4.56" y="-2.22" drill="1.88"/>
+<pad name="9" x="4.56" y="-2.22" drill="1.88"/>
+<pad name="4" x="-4.56" y="2.22" drill="1.88"/>
+<pad name="10" x="4.56" y="2.22" drill="1.88"/>
+<pad name="5" x="-4.56" y="6.67" drill="1.88"/>
+<pad name="6" x="-4.56" y="11.11" drill="1.88"/>
+<pad name="11" x="4.56" y="6.67" drill="1.88"/>
+<pad name="12" x="4.56" y="11.11" drill="1.88"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -26624,6 +26652,25 @@ USART&lt;p&gt;
 </technologies>
 </device>
 <device name="(JST-XH)" package="JST-XH_12">
+<connects>
+<connect gate=".A" pin="PIN1" pad="1"/>
+<connect gate=".A" pin="PIN10" pad="10"/>
+<connect gate=".A" pin="PIN11" pad="11"/>
+<connect gate=".A" pin="PIN12" pad="12"/>
+<connect gate=".A" pin="PIN2" pad="2"/>
+<connect gate=".A" pin="PIN3" pad="3"/>
+<connect gate=".A" pin="PIN4" pad="4"/>
+<connect gate=".A" pin="PIN5" pad="5"/>
+<connect gate=".A" pin="PIN6" pad="6"/>
+<connect gate=".A" pin="PIN7" pad="7"/>
+<connect gate=".A" pin="PIN8" pad="8"/>
+<connect gate=".A" pin="PIN9" pad="9"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="(DEUTSCH-DT)" package="DT15-12P">
 <connects>
 <connect gate=".A" pin="PIN1" pad="1"/>
 <connect gate=".A" pin="PIN10" pad="10"/>
