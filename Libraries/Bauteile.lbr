@@ -26390,7 +26390,7 @@ USART&lt;p&gt;
 </device>
 </devices>
 </deviceset>
-<deviceset name="JUMPER" prefix="X">
+<deviceset name="JUMPER" prefix="J">
 <gates>
 <gate name=".A" symbol="JUMPER" x="0" y="0"/>
 </gates>
