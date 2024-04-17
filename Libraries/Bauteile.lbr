@@ -11201,6 +11201,29 @@ SC89</description>
 <pad name="11" x="4.56" y="6.67" drill="1.88"/>
 <pad name="12" x="4.56" y="11.11" drill="1.88"/>
 </package>
+<package name="HTFSXXX-P">
+<hole x="-16.5" y="16.5" drill="5.4"/>
+<hole x="16.5" y="16.5" drill="5.4"/>
+<hole x="-16.5" y="-16.5" drill="5.4"/>
+<hole x="16.5" y="-16.5" drill="5.4"/>
+<circle x="0" y="0" radius="20" width="0.4064" layer="21"/>
+<circle x="0" y="0" radius="11" width="0.4064" layer="21"/>
+<wire x1="-19" y1="19" x2="19" y2="19" width="0.4064" layer="21"/>
+<wire x1="19" y1="19" x2="19" y2="-19" width="0.4064" layer="21"/>
+<wire x1="19" y1="-19" x2="4.5" y2="-19" width="0.4064" layer="21"/>
+<wire x1="4.5" y1="-19" x2="-2.5" y2="-19" width="0.4064" layer="21"/>
+<wire x1="-2.5" y1="-19" x2="-19" y2="-19" width="0.4064" layer="21"/>
+<wire x1="-19" y1="-19" x2="-19" y2="19" width="0.4064" layer="21"/>
+<wire x1="-2.5" y1="-19" x2="-2.5" y2="-26" width="0.4064" layer="21"/>
+<wire x1="-2.5" y1="-26" x2="4.5" y2="-26" width="0.4064" layer="21"/>
+<wire x1="4.5" y1="-26" x2="4.5" y2="-19" width="0.4064" layer="21"/>
+<pad name="4" x="-1" y="-16" drill="0.7"/>
+<pad name="3" x="-1" y="-18.54" drill="0.7"/>
+<pad name="2" x="-1" y="-21.08" drill="0.7"/>
+<pad name="1" x="-1" y="-23.62" drill="0.7"/>
+<text x="0" y="0.635" size="1.016" layer="25" align="center">&gt;name</text>
+<text x="0" y="-0.635" size="1.016" layer="27" align="center">&gt;value</text>
+</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -21092,6 +21115,28 @@ RJ45 T-568B</text>
 <wire x1="-3.81" y1="-5.08" x2="-1.27" y2="-3.81" width="0.4064" layer="94"/>
 <wire x1="-3.81" y1="5.08" x2="-1.27" y2="3.81" width="0.4064" layer="94"/>
 <wire x1="33.02" y1="-21.59" x2="33.02" y2="-26.67" width="0.4064" layer="94"/>
+</symbol>
+<symbol name="HFTSXXX-P">
+<pin name="REF" x="-5.08" y="0" length="point" rot="R180"/>
+<text x="1.27" y="6.35" size="1.778" layer="94" align="center-left">&gt;name</text>
+<text x="1.27" y="3.81" size="1.778" layer="94" align="center-left">&gt;value</text>
+<circle x="0" y="0" radius="2.54" width="0.4064" layer="94"/>
+<wire x1="0" y1="-2.54" x2="0" y2="-5.3975" width="0.4064" layer="94" style="shortdash"/>
+<wire x1="0" y1="-5.3975" x2="0" y2="-7.62" width="0.4064" layer="94" style="shortdash"/>
+<wire x1="0" y1="2.54" x2="0" y2="7.62" width="0.4064" layer="94" style="shortdash"/>
+<wire x1="-1.27" y1="0" x2="0.9525" y2="-0.9525" width="0.4064" layer="94"/>
+<wire x1="-1.27" y1="0" x2="0.9525" y2="0.9525" width="0.4064" layer="94"/>
+<wire x1="0" y1="-0.3175" x2="0" y2="0.3175" width="0.4064" layer="94"/>
+<wire x1="0" y1="-5.3975" x2="0.635" y2="-4.445" width="0.5" layer="94"/>
+<wire x1="0" y1="-5.3975" x2="-0.635" y2="-4.445" width="0.5" layer="94"/>
+<wire x1="0.635" y1="-4.445" x2="-0.635" y2="-4.445" width="0.5" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-5.08" y2="0" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-3.175" y2="0.635" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-3.175" y2="-0.635" width="0.4064" layer="94"/>
+<pin name="OUT" x="5.08" y="0" length="point"/>
+<wire x1="2.54" y1="0" x2="5.08" y2="0" width="0.4064" layer="94"/>
+<wire x1="5.08" y1="0" x2="4.445" y2="0.635" width="0.4064" layer="94"/>
+<wire x1="5.08" y1="0" x2="4.445" y2="-0.635" width="0.4064" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -33217,6 +33262,25 @@ USART&lt;p&gt;
 <connect gate=".PWR1" pin="VCC" pad="1"/>
 <connect gate=".PWR2" pin="GND" pad="5"/>
 <connect gate=".PWR2" pin="VCC" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="HTFSXXX-P" prefix="IC" uservalue="yes">
+<gates>
+<gate name=".PWR" symbol="SUPPLY_VCC/GND" x="-20.32" y="0"/>
+<gate name=".A" symbol="HFTSXXX-P" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="HTFSXXX-P">
+<connects>
+<connect gate=".A" pin="OUT" pad="3"/>
+<connect gate=".A" pin="REF" pad="4"/>
+<connect gate=".PWR" pin="GND" pad="2"/>
+<connect gate=".PWR" pin="VCC" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
