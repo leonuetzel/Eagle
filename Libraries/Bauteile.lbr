@@ -21358,72 +21358,72 @@ RJ45 T-568B</text>
 <wire x1="5.08" y1="0" x2="4.445" y2="-0.635" width="0.4064" layer="94"/>
 </symbol>
 <symbol name="BQ75614">
-<wire x1="-12.7" y1="-111.76" x2="-12.7" y2="96.52" width="0.4064" layer="94"/>
-<wire x1="-12.7" y1="96.52" x2="12.7" y2="96.52" width="0.4064" layer="94"/>
-<wire x1="12.7" y1="96.52" x2="12.7" y2="-111.76" width="0.4064" layer="94"/>
-<wire x1="12.7" y1="-111.76" x2="-12.7" y2="-111.76" width="0.4064" layer="94"/>
-<pin name="BAT" x="-15.24" y="93.98" length="short"/>
-<pin name="NEG_5V" x="15.24" y="60.96" length="short" rot="R180"/>
-<pin name="TX" x="15.24" y="90.17" length="short" rot="R180"/>
-<text x="-12.7" y="97.79" size="1.778" layer="94" align="center-left">&gt;name</text>
-<text x="12.7" y="97.79" size="1.778" layer="94" align="center-right">&gt;value</text>
-<pin name="CB1" x="15.24" y="-99.06" length="short" rot="R180"/>
-<pin name="VC0" x="-15.24" y="-109.22" length="short"/>
-<pin name="SR+" x="50.8" y="-15.24" length="short"/>
-<pin name="VDD_D" x="15.24" y="72.39" length="short" rot="R180"/>
-<pin name="NFAULT" x="15.24" y="86.36" length="short" rot="R180"/>
-<pin name="GPIO1" x="71.12" y="53.34" length="short" rot="R180"/>
-<pin name="NPN_B" x="-15.24" y="81.28" length="short"/>
-<pin name="LDO_IN" x="-15.24" y="74.93" length="short"/>
-<pin name="VDD_A" x="15.24" y="76.2" length="short" rot="R180"/>
-<pin name="SR-" x="50.8" y="-25.4" length="short"/>
-<pin name="RX" x="15.24" y="93.98" length="short" rot="R180"/>
-<pin name="VDD_C" x="15.24" y="68.58" length="short" rot="R180"/>
-<pin name="GND_C" x="71.12" y="80.01" length="short" rot="R180"/>
-<pin name="TS_REF" x="71.12" y="66.04" length="short" rot="R180"/>
-<pin name="GND_D" x="71.12" y="76.2" length="short" rot="R180"/>
-<pin name="GND_A" x="71.12" y="72.39" visible="pin" length="short" rot="R180"/>
-<pin name="CB2" x="15.24" y="-88.9" length="short" rot="R180"/>
-<pin name="CB3" x="15.24" y="-78.74" length="short" rot="R180"/>
-<pin name="CB4" x="15.24" y="-68.58" length="short" rot="R180"/>
-<pin name="CB5" x="15.24" y="-58.42" length="short" rot="R180"/>
-<pin name="CB6" x="15.24" y="-48.26" length="short" rot="R180"/>
-<pin name="CB7" x="15.24" y="-38.1" length="short" rot="R180"/>
-<pin name="CB8" x="15.24" y="-27.94" length="short" rot="R180"/>
-<pin name="CB9" x="15.24" y="-17.78" length="short" rot="R180"/>
-<pin name="CB10" x="50.8" y="-55.88" length="short"/>
-<pin name="CB11" x="50.8" y="-52.07" length="short"/>
-<pin name="CB12" x="50.8" y="-48.26" length="short"/>
-<pin name="CB13" x="50.8" y="-44.45" length="short"/>
-<pin name="CB14" x="50.8" y="-40.64" length="short"/>
-<pin name="VC1" x="-15.24" y="-99.06" length="short"/>
-<pin name="VC2" x="-15.24" y="-88.9" length="short"/>
-<pin name="VC3" x="-15.24" y="-78.74" length="short"/>
-<pin name="VC4" x="-15.24" y="-68.58" length="short"/>
-<pin name="VC5" x="-15.24" y="-58.42" length="short"/>
-<pin name="VC6" x="-15.24" y="-48.26" length="short"/>
-<pin name="VC7" x="-15.24" y="-38.1" length="short"/>
-<pin name="VC8" x="-15.24" y="-27.94" length="short"/>
-<pin name="VC9" x="-15.24" y="-17.78" length="short"/>
-<pin name="VC10" x="-15.24" y="-7.62" length="short"/>
-<pin name="VC11" x="-15.24" y="2.54" length="short"/>
-<pin name="VC12" x="-15.24" y="12.7" length="short"/>
-<pin name="VC13" x="-15.24" y="22.86" length="short"/>
-<pin name="VC14" x="-15.24" y="33.02" length="short"/>
-<pin name="VC15/SW1" x="-15.24" y="43.18" length="short"/>
-<pin name="VC16/SW2" x="-15.24" y="53.34" length="short"/>
-<pin name="CB0" x="15.24" y="-109.22" length="short" rot="R180"/>
-<pin name="GPIO2" x="71.12" y="49.53" length="short" rot="R180"/>
-<pin name="GPIO3" x="71.12" y="45.72" length="short" rot="R180"/>
-<pin name="GPIO4" x="71.12" y="41.91" length="short" rot="R180"/>
-<pin name="GPIO5" x="71.12" y="38.1" length="short" rot="R180"/>
-<pin name="GPIO6" x="71.12" y="34.29" length="short" rot="R180"/>
-<pin name="GPIO7" x="71.12" y="30.48" length="short" rot="R180"/>
-<pin name="GPIO8" x="71.12" y="26.67" length="short" rot="R180"/>
-<pin name="REF_H+" x="15.24" y="64.77" length="short" rot="R180"/>
-<pin name="REF_H-" x="71.12" y="83.82" length="short" rot="R180"/>
-<pin name="CB15" x="50.8" y="-36.83" length="short"/>
-<pin name="CB16" x="50.8" y="-33.02" length="short"/>
+<wire x1="-12.7" y1="-144.78" x2="-12.7" y2="144.78" width="0.4064" layer="94"/>
+<wire x1="-12.7" y1="144.78" x2="12.7" y2="144.78" width="0.4064" layer="94"/>
+<wire x1="12.7" y1="144.78" x2="12.7" y2="-144.78" width="0.4064" layer="94"/>
+<wire x1="12.7" y1="-144.78" x2="-12.7" y2="-144.78" width="0.4064" layer="94"/>
+<pin name="BAT" x="-15.24" y="142.24" length="short"/>
+<pin name="NEG_5V" x="15.24" y="-120.65" length="short" rot="R180"/>
+<pin name="TX" x="15.24" y="138.43" length="short" rot="R180"/>
+<text x="-12.7" y="146.05" size="1.778" layer="94" align="center-left">&gt;name</text>
+<text x="12.7" y="146.05" size="1.778" layer="94" align="center-right">&gt;value</text>
+<pin name="CB1" x="15.24" y="-76.2" length="short" rot="R180"/>
+<pin name="VC0" x="-15.24" y="-86.36" length="short"/>
+<pin name="SR+" x="-15.24" y="-124.46" length="short"/>
+<pin name="VDD_D" x="15.24" y="-109.22" length="short" rot="R180"/>
+<pin name="NFAULT" x="15.24" y="134.62" length="short" rot="R180"/>
+<pin name="GPIO1" x="15.24" y="111.76" length="short" rot="R180"/>
+<pin name="NPN_B" x="-15.24" y="129.54" length="short"/>
+<pin name="LDO_IN" x="-15.24" y="123.19" length="short"/>
+<pin name="VDD_A" x="15.24" y="-113.03" length="short" rot="R180"/>
+<pin name="SR-" x="-15.24" y="-142.24" length="short"/>
+<pin name="RX" x="15.24" y="142.24" length="short" rot="R180"/>
+<pin name="VDD_C" x="15.24" y="-105.41" length="short" rot="R180"/>
+<pin name="GND_C" x="15.24" y="-142.24" length="short" rot="R180"/>
+<pin name="TS_REF" x="15.24" y="129.54" length="short" rot="R180"/>
+<pin name="GND_D" x="15.24" y="-138.43" length="short" rot="R180"/>
+<pin name="GND_A" x="15.24" y="-134.62" visible="pin" length="short" rot="R180"/>
+<pin name="CB2" x="15.24" y="-66.04" length="short" rot="R180"/>
+<pin name="CB3" x="15.24" y="-55.88" length="short" rot="R180"/>
+<pin name="CB4" x="15.24" y="-45.72" length="short" rot="R180"/>
+<pin name="CB5" x="15.24" y="-35.56" length="short" rot="R180"/>
+<pin name="CB6" x="15.24" y="-25.4" length="short" rot="R180"/>
+<pin name="CB7" x="15.24" y="-15.24" length="short" rot="R180"/>
+<pin name="CB8" x="15.24" y="-5.08" length="short" rot="R180"/>
+<pin name="CB9" x="15.24" y="5.08" length="short" rot="R180"/>
+<pin name="CB10" x="15.24" y="15.24" length="short" rot="R180"/>
+<pin name="CB11" x="15.24" y="25.4" length="short" rot="R180"/>
+<pin name="CB12" x="15.24" y="35.56" length="short" rot="R180"/>
+<pin name="CB13" x="15.24" y="45.72" length="short" rot="R180"/>
+<pin name="CB14" x="15.24" y="55.88" length="short" rot="R180"/>
+<pin name="VC1" x="-15.24" y="-76.2" length="short"/>
+<pin name="VC2" x="-15.24" y="-66.04" length="short"/>
+<pin name="VC3" x="-15.24" y="-55.88" length="short"/>
+<pin name="VC4" x="-15.24" y="-45.72" length="short"/>
+<pin name="VC5" x="-15.24" y="-35.56" length="short"/>
+<pin name="VC6" x="-15.24" y="-25.4" length="short"/>
+<pin name="VC7" x="-15.24" y="-15.24" length="short"/>
+<pin name="VC8" x="-15.24" y="-5.08" length="short"/>
+<pin name="VC9" x="-15.24" y="5.08" length="short"/>
+<pin name="VC10" x="-15.24" y="15.24" length="short"/>
+<pin name="VC11" x="-15.24" y="25.4" length="short"/>
+<pin name="VC12" x="-15.24" y="35.56" length="short"/>
+<pin name="VC13" x="-15.24" y="45.72" length="short"/>
+<pin name="VC14" x="-15.24" y="55.88" length="short"/>
+<pin name="VC15/SW1" x="-15.24" y="66.04" length="short"/>
+<pin name="VC16/SW2" x="-15.24" y="76.2" length="short"/>
+<pin name="CB0" x="15.24" y="-86.36" length="short" rot="R180"/>
+<pin name="GPIO2" x="15.24" y="107.95" length="short" rot="R180"/>
+<pin name="GPIO3" x="15.24" y="104.14" length="short" rot="R180"/>
+<pin name="GPIO4" x="15.24" y="100.33" length="short" rot="R180"/>
+<pin name="GPIO5" x="15.24" y="93.98" length="short" rot="R180"/>
+<pin name="GPIO6" x="15.24" y="90.17" length="short" rot="R180"/>
+<pin name="GPIO7" x="15.24" y="86.36" length="short" rot="R180"/>
+<pin name="GPIO8" x="15.24" y="82.55" length="short" rot="R180"/>
+<pin name="REF_H+" x="15.24" y="-116.84" length="short" rot="R180"/>
+<pin name="REF_H-" x="15.24" y="-130.81" length="short" rot="R180"/>
+<pin name="CB15" x="15.24" y="66.04" length="short" rot="R180"/>
+<pin name="CB16" x="15.24" y="76.2" length="short" rot="R180"/>
 </symbol>
 <symbol name="CAN_TRANSCEIVER">
 <wire x1="-10.16" y1="-5.08" x2="-10.16" y2="5.08" width="0.4064" layer="94"/>
@@ -26646,13 +26646,13 @@ USART&lt;p&gt;
 </deviceset>
 <deviceset name="NTC" prefix="NTC" uservalue="yes">
 <gates>
-<gate name="G$1" symbol="NTC" x="0" y="0"/>
+<gate name=".A" symbol="NTC" x="0" y="0"/>
 </gates>
 <devices>
 <device name="(0603)" package="SMD_0603">
 <connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
+<connect gate=".A" pin="1" pad="1"/>
+<connect gate=".A" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name="">
