@@ -31202,6 +31202,12 @@ RJ45 T-568B</text>
 <connect gate=".A" pin="PG" pad="6"/>
 <connect gate=".PWR" pin="GND" pad="4"/>
 <connect gate=".PWR" pin="VCC" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
 </deviceset>
 <deviceset name="STEF01" prefix="IC">
 <gates>
