@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="1.27" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.635" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Top + 1" color="12" fill="1" visible="yes" active="yes"/>
@@ -11367,6 +11367,29 @@ SC89</description>
 <wire x1="3.81" y1="-2.54" x2="3.175" y2="-2.54" width="0.2" layer="21"/>
 <circle x="-3.175" y="-1.905" radius="0.1" width="0.2" layer="21"/>
 </package>
+<package name="TRV2-XX2XM">
+<wire x1="-9.8" y1="4.95" x2="9.8" y2="4.95" width="0.4064" layer="51"/>
+<wire x1="9.8" y1="4.95" x2="9.8" y2="-4.95" width="0.4064" layer="51"/>
+<wire x1="9.8" y1="-4.95" x2="-9.8" y2="-4.95" width="0.4064" layer="51"/>
+<wire x1="-9.8" y1="-4.95" x2="-9.8" y2="4.95" width="0.4064" layer="51"/>
+<pad name="1" x="-8" y="2.65" drill="0.7"/>
+<pad name="2" x="-6" y="2.65" drill="0.7"/>
+<pad name="7" x="4" y="2.65" drill="0.7"/>
+<pad name="8" x="6" y="2.65" drill="0.7"/>
+<pad name="9" x="8" y="2.65" drill="0.7"/>
+<text x="0" y="6.35" size="1.016" layer="25" align="center">&gt;name</text>
+<text x="0" y="-6.35" size="1.016" layer="27" align="center">&gt;value</text>
+<wire x1="-9.525" y1="5.715" x2="-10.795" y2="5.715" width="0.2" layer="21"/>
+<wire x1="-10.795" y1="5.715" x2="-10.795" y2="4.445" width="0.2" layer="21"/>
+<wire x1="9.525" y1="5.715" x2="10.795" y2="5.715" width="0.2" layer="21"/>
+<wire x1="10.795" y1="5.715" x2="10.795" y2="4.445" width="0.2" layer="21"/>
+<wire x1="9.525" y1="-5.715" x2="10.795" y2="-5.715" width="0.2" layer="21"/>
+<wire x1="10.795" y1="-5.715" x2="10.795" y2="-4.445" width="0.2" layer="21"/>
+<wire x1="-9.525" y1="-5.715" x2="-10.795" y2="-5.715" width="0.2" layer="21"/>
+<wire x1="-10.795" y1="-5.715" x2="-10.795" y2="-4.445" width="0.2" layer="21"/>
+<circle x="-10.16" y="5.08" radius="0.1" width="0.2" layer="21"/>
+<circle x="-8.89" y="3.81" radius="0.1" width="0.2" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -20122,7 +20145,7 @@ RJ45 T-568B</text>
 <pin name="IN" x="-15.24" y="5.08" visible="pin" length="short"/>
 <pin name="GND1" x="-15.24" y="-5.08" visible="pin" length="short"/>
 <text x="-12.7" y="9.525" size="1.778" layer="94" align="center-left">&gt;name</text>
-<text x="-12.7" y="-11.43" size="1.778" layer="94" align="center-left">&gt;value</text>
+<text x="12.7" y="9.525" size="1.778" layer="94" align="center-right">&gt;value</text>
 <pin name="GND2" x="15.24" y="-5.08" visible="pin" length="short" rot="R180"/>
 <pin name="OUT" x="15.24" y="5.08" visible="pin" length="short" rot="R180"/>
 <wire x1="-0.9525" y1="10.16" x2="-0.9525" y2="-10.16" width="0.4064" layer="94" style="shortdash"/>
@@ -20133,6 +20156,12 @@ RJ45 T-568B</text>
 <wire x1="0.9525" y1="10.16" x2="0.9525" y2="-10.16" width="0.4064" layer="94" style="shortdash"/>
 <text x="-3.81" y="-8.89" size="0.6096" layer="94" align="center">VCC_1</text>
 <text x="3.81" y="-8.89" size="0.6096" layer="94" align="center">VCC_2</text>
+<text x="6.985" y="-1.27" size="1.016" layer="94" align="center-left">&gt;I_OUT</text>
+<text x="6.985" y="1.27" size="1.016" layer="94" align="center-left">&gt;V_OUT</text>
+<text x="-8.255" y="0" size="1.016" layer="94" align="center-left">&gt;V_IN</text>
+<text x="-11.43" y="0" size="1.016" layer="94" align="center-left">V =</text>
+<text x="3.81" y="1.27" size="1.016" layer="94" align="center-left">V =</text>
+<text x="3.81" y="-1.27" size="1.016" layer="94" align="center-left">I =</text>
 </symbol>
 <symbol name="AMC23C10">
 <wire x1="-2.54" y1="3.175" x2="-2.54" y2="1.905" width="0.1524" layer="94"/>
@@ -20301,24 +20330,24 @@ RJ45 T-568B</text>
 <text x="-10.16" y="-6.985" size="1.778" layer="94" align="center-left">&gt;value</text>
 </symbol>
 <symbol name="CAN_TRANSCEIVER_ISOLATED">
-<wire x1="-12.7" y1="-5.08" x2="-12.7" y2="5.08" width="0.4064" layer="94"/>
-<wire x1="-12.7" y1="5.08" x2="-0.635" y2="5.08" width="0.4064" layer="94"/>
-<wire x1="-0.635" y1="5.08" x2="0.635" y2="5.08" width="0.4064" layer="94"/>
-<wire x1="0.635" y1="5.08" x2="12.7" y2="5.08" width="0.4064" layer="94"/>
-<wire x1="12.7" y1="5.08" x2="12.7" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="12.7" y1="-5.08" x2="0.635" y2="-5.08" width="0.4064" layer="94"/>
-<pin name="RXD" x="-15.24" y="-2.54" length="short"/>
-<pin name="TXD" x="-15.24" y="2.54" length="short"/>
-<pin name="CAN_H" x="15.24" y="2.54" length="short" rot="R180"/>
-<pin name="CAN_L" x="15.24" y="-2.54" length="short" rot="R180"/>
-<text x="-12.7" y="6.985" size="1.778" layer="94" align="center-left">&gt;name</text>
-<text x="-12.7" y="-6.985" size="1.778" layer="94" align="center-left">&gt;value</text>
-<wire x1="0.635" y1="-5.08" x2="-0.635" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="-0.635" y1="-5.08" x2="-12.7" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="-0.635" y1="5.08" x2="-0.635" y2="-5.08" width="0.4064" layer="94" style="shortdash"/>
-<wire x1="0.635" y1="5.08" x2="0.635" y2="-5.08" width="0.4064" layer="94" style="shortdash"/>
-<text x="-2.54" y="0" size="0.6096" layer="94" align="center">VCC 1</text>
-<text x="2.54" y="0" size="0.6096" layer="94" align="center">VCC 2</text>
+<wire x1="-13.97" y1="-5.08" x2="-13.97" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-13.97" y1="5.08" x2="-1.905" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="1.905" y1="5.08" x2="13.97" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="13.97" y1="5.08" x2="13.97" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="13.97" y1="-5.08" x2="1.905" y2="-5.08" width="0.4064" layer="94"/>
+<pin name="RXD" x="-16.51" y="-2.54" length="short"/>
+<pin name="TXD" x="-16.51" y="2.54" length="short"/>
+<pin name="CAN_H" x="16.51" y="2.54" length="short" rot="R180"/>
+<pin name="CAN_L" x="16.51" y="-2.54" length="short" rot="R180"/>
+<text x="-13.97" y="6.985" size="1.778" layer="94" align="center-left">&gt;name</text>
+<text x="-13.97" y="-6.985" size="1.778" layer="94" align="center-left">&gt;value</text>
+<wire x1="-1.905" y1="-5.08" x2="-13.97" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="-0.635" y1="6.35" x2="-0.635" y2="-6.35" width="0.4064" layer="94" style="shortdash"/>
+<wire x1="0.635" y1="6.35" x2="0.635" y2="-6.35" width="0.4064" layer="94" style="shortdash"/>
+<text x="-3.81" y="0" size="0.6096" layer="94" align="center">VCC 1</text>
+<text x="3.81" y="0" size="0.6096" layer="94" align="center">VCC 2</text>
+<wire x1="1.905" y1="5.08" x2="1.905" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="-1.905" y1="-5.08" x2="-1.905" y2="5.08" width="0.4064" layer="94"/>
 </symbol>
 <symbol name="ISOLATOR_VCC1_TO_VCC2">
 <pin name="IN" x="-5.08" y="0" visible="pad" length="point"/>
@@ -30795,7 +30824,7 @@ RJ45 T-568B</text>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DC/DC_ISOLATED" prefix="IC" uservalue="yes">
+<deviceset name="DC/DC_ISOLATED" prefix="IC">
 <gates>
 <gate name=".A" symbol="DC/DC_ISOLATED" x="0" y="0"/>
 </gates>
@@ -30810,6 +30839,25 @@ RJ45 T-568B</text>
 <technologies>
 <technology name="">
 <attribute name="ID" value="" constant="no"/>
+<attribute name="I_OUT" value="" constant="no"/>
+<attribute name="V_IN" value="" constant="no"/>
+<attribute name="V_OUT" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="(TRV2-XX2XM)" package="TRV2-XX2XM">
+<connects>
+<connect gate=".A" pin="GND1" pad="2"/>
+<connect gate=".A" pin="GND2" pad="7"/>
+<connect gate=".A" pin="IN" pad="1"/>
+<connect gate=".A" pin="OUT" pad="9"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ID" value="" constant="no"/>
+<attribute name="I_OUT" value="" constant="no"/>
+<attribute name="V_IN" value="" constant="no"/>
+<attribute name="V_OUT" value="" constant="no"/>
 </technology>
 </technologies>
 </device>
