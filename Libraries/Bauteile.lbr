@@ -11384,6 +11384,23 @@ SC89</description>
 <circle x="-10.16" y="5.08" radius="0.1" width="0.2" layer="21"/>
 <circle x="-8.89" y="3.81" radius="0.1" width="0.2" layer="51"/>
 </package>
+<package name="SPRING_CONTACT_TE_1674954-1">
+<smd name="1" x="0" y="0" dx="4.5" dy="2.6" layer="1" roundness="50"/>
+<text x="0" y="3.175" size="1.016" layer="25" align="center">&gt;name</text>
+<text x="0" y="-3.175" size="1.016" layer="27" align="center">&gt;value</text>
+<wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.4064" layer="51"/>
+<wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.4064" layer="51"/>
+<wire x1="2.54" y1="-1.27" x2="-2.54" y2="-1.27" width="0.4064" layer="51"/>
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.4064" layer="51"/>
+<wire x1="-2.54" y1="1.905" x2="-3.175" y2="1.905" width="0.4064" layer="21"/>
+<wire x1="-3.175" y1="1.905" x2="-3.175" y2="1.27" width="0.4064" layer="21"/>
+<wire x1="2.54" y1="1.905" x2="3.175" y2="1.905" width="0.4064" layer="21"/>
+<wire x1="3.175" y1="1.905" x2="3.175" y2="1.27" width="0.4064" layer="21"/>
+<wire x1="-2.54" y1="-1.905" x2="-3.175" y2="-1.905" width="0.4064" layer="21"/>
+<wire x1="-3.175" y1="-1.905" x2="-3.175" y2="-1.27" width="0.4064" layer="21"/>
+<wire x1="2.54" y1="-1.905" x2="3.175" y2="-1.905" width="0.4064" layer="21"/>
+<wire x1="3.175" y1="-1.905" x2="3.175" y2="-1.27" width="0.4064" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -31035,6 +31052,16 @@ RJ45 T-568B</text>
 <technologies>
 <technology name="">
 <attribute name="ID" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="(SPRING_CONTACT_TE_1674954-1)" package="SPRING_CONTACT_TE_1674954-1">
+<connects>
+<connect gate=".A" pin="PIN1" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ID" value="1674954-1"/>
 </technology>
 </technologies>
 </device>
