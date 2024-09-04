@@ -6457,8 +6457,8 @@ RFMicro Device TQFP / LQFP-32 see IPC-SQR.LBR SQFP 5x5-32</description>
 <wire x1="3.95" y1="3.65" x2="3.95" y2="-3.65" width="0.254" layer="51"/>
 <wire x1="3.95" y1="-3.65" x2="-3.95" y2="-3.65" width="0.254" layer="51"/>
 <wire x1="-3.95" y1="-3.65" x2="-3.95" y2="3.65" width="0.254" layer="51"/>
-<text x="0" y="6.35" size="1.016" layer="25" align="center">&gt;name</text>
-<text x="0" y="-6.35" size="1.016" layer="27" align="center">&gt;value</text>
+<text x="0" y="5.08" size="1.016" layer="25" align="center">&gt;name</text>
+<text x="0" y="-5.08" size="1.016" layer="27" align="center">&gt;value</text>
 <wire x1="-2.54" y1="4.1275" x2="-4.445" y2="4.1275" width="0.2" layer="21"/>
 <wire x1="-4.445" y1="4.1275" x2="-4.445" y2="2.2225" width="0.2" layer="21"/>
 <wire x1="2.54" y1="4.1275" x2="4.445" y2="4.1275" width="0.2" layer="21"/>
@@ -11819,6 +11819,24 @@ SC89</description>
 <circle x="0" y="0" radius="15.875" width="0.2" layer="21"/>
 <text x="0" y="13.97" size="1.016" layer="25" align="center">&gt;name</text>
 <text x="0" y="-13.97" size="1.016" layer="27" align="center">&gt;value</text>
+</package>
+<package name="WUERTH_7440420027">
+<smd name="1" x="0" y="2.5" dx="2" dy="5.3" layer="1" roundness="50" rot="R90"/>
+<smd name="2" x="0" y="-2.5" dx="2" dy="5.3" layer="1" roundness="50" rot="R90"/>
+<wire x1="-2.4" y1="2.4" x2="2.4" y2="2.4" width="0.254" layer="51"/>
+<wire x1="2.4" y1="2.4" x2="2.4" y2="-2.4" width="0.254" layer="51"/>
+<wire x1="2.4" y1="-2.4" x2="-2.4" y2="-2.4" width="0.254" layer="51"/>
+<wire x1="-2.4" y1="-2.4" x2="-2.4" y2="2.4" width="0.254" layer="51"/>
+<text x="0" y="4.7625" size="1.016" layer="25" align="center">&gt;name</text>
+<text x="0" y="-4.7625" size="1.016" layer="27" align="center">&gt;value</text>
+<wire x1="-1.74625" y1="3.81" x2="-3.01625" y2="3.81" width="0.2" layer="21"/>
+<wire x1="-3.01625" y1="3.81" x2="-3.01625" y2="2.54" width="0.2" layer="21"/>
+<wire x1="1.74625" y1="3.81" x2="3.01625" y2="3.81" width="0.2" layer="21"/>
+<wire x1="3.01625" y1="3.81" x2="3.01625" y2="2.54" width="0.2" layer="21"/>
+<wire x1="-1.74625" y1="-3.81" x2="-3.01625" y2="-3.81" width="0.2" layer="21"/>
+<wire x1="-3.01625" y1="-3.81" x2="-3.01625" y2="-2.54" width="0.2" layer="21"/>
+<wire x1="1.74625" y1="-3.81" x2="3.01625" y2="-3.81" width="0.2" layer="21"/>
+<wire x1="3.01625" y1="-3.81" x2="3.01625" y2="-2.54" width="0.2" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -31193,6 +31211,23 @@ RJ45 T-568B</text>
 <technologies>
 <technology name="">
 <attribute name="ID" value="" constant="no"/>
+<attribute name="I_N" value="" constant="no"/>
+<attribute name="I_SAT" value="" constant="no"/>
+<attribute name="R_DC_MAX" value="" constant="no"/>
+<attribute name="R_DC_TYP" value="" constant="no"/>
+<attribute name="SRF" value="" constant="no"/>
+<attribute name="TOL" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="(7440420027)" package="WUERTH_7440420027">
+<connects>
+<connect gate=".A" pin="1" pad="1"/>
+<connect gate=".A" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ID" value="7440420027" constant="no"/>
 <attribute name="I_N" value="" constant="no"/>
 <attribute name="I_SAT" value="" constant="no"/>
 <attribute name="R_DC_MAX" value="" constant="no"/>
