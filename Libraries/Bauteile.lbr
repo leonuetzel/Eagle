@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.3175" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.635" altunitdist="mm" altunit="mm"/>
+<grid distance="0.15875" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.635" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Top + 1" color="12" fill="1" visible="yes" active="yes"/>
@@ -26,7 +26,7 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -10169,15 +10169,15 @@ SC89</description>
 <wire x1="-3.27" y1="-2.8" x2="-3.27" y2="1.2" width="0.1" layer="51"/>
 <text x="-5.08" y="-0.635" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
 <text x="5.08" y="-0.635" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
-<wire x1="-3.175" y1="1.27" x2="-4.1275" y2="1.27" width="0.2" layer="21"/>
-<wire x1="-4.1275" y1="1.27" x2="-4.1275" y2="0.635" width="0.2" layer="21"/>
-<wire x1="3.175" y1="1.27" x2="4.1275" y2="1.27" width="0.2" layer="21"/>
-<wire x1="4.1275" y1="1.27" x2="4.1275" y2="0.635" width="0.2" layer="21"/>
-<wire x1="3.175" y1="-3.175" x2="4.1275" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="4.1275" y1="-3.175" x2="4.1275" y2="-1.905" width="0.2" layer="21"/>
-<wire x1="-3.175" y1="-3.175" x2="-4.1275" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="-4.1275" y1="-3.175" x2="-4.1275" y2="-1.905" width="0.2" layer="21"/>
-<circle x="-3.4925" y="-2.54" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-3.33375" y1="1.27" x2="-3.96875" y2="1.27" width="0.2" layer="21"/>
+<wire x1="-3.96875" y1="1.27" x2="-3.96875" y2="0.635" width="0.2" layer="21"/>
+<wire x1="3.33375" y1="1.27" x2="3.96875" y2="1.27" width="0.2" layer="21"/>
+<wire x1="3.96875" y1="1.27" x2="3.96875" y2="0.635" width="0.2" layer="21"/>
+<wire x1="3.33375" y1="-2.8575" x2="3.96875" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="3.96875" y1="-2.8575" x2="3.96875" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="-3.33375" y1="-2.8575" x2="-3.96875" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="-3.96875" y1="-2.8575" x2="-3.96875" y2="-2.2225" width="0.2" layer="21"/>
+<circle x="-3.4925" y="-2.38125" radius="0.1" width="0.2" layer="21"/>
 <circle x="-2.54" y="-1.905" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="SMD_0402_DIODE">
@@ -10556,19 +10556,19 @@ SC89</description>
 <wire x1="4.27" y1="1.2" x2="4.27" y2="-2.8" width="0.1" layer="51"/>
 <wire x1="4.27" y1="-2.8" x2="-4.27" y2="-2.8" width="0.1" layer="51"/>
 <wire x1="-4.27" y1="-2.8" x2="-4.27" y2="1.2" width="0.1" layer="51"/>
-<text x="-6.0325" y="-0.635" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
-<text x="6.0325" y="-0.635" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
+<text x="-5.87375" y="-0.635" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
+<text x="5.87375" y="-0.635" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
 <smd name="5" x="1.5" y="-2.175" dx="0.6" dy="1.5" layer="1" roundness="25"/>
 <smd name="6" x="2.5" y="-2.175" dx="0.6" dy="1.5" layer="1" roundness="25"/>
-<wire x1="-4.1275" y1="1.27" x2="-5.08" y2="1.27" width="0.2" layer="21"/>
-<wire x1="-5.08" y1="1.27" x2="-5.08" y2="0.635" width="0.2" layer="21"/>
-<wire x1="4.1275" y1="1.27" x2="5.08" y2="1.27" width="0.2" layer="21"/>
-<wire x1="5.08" y1="1.27" x2="5.08" y2="0.635" width="0.2" layer="21"/>
-<wire x1="4.1275" y1="-3.175" x2="5.08" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="5.08" y1="-3.175" x2="5.08" y2="-1.905" width="0.2" layer="21"/>
-<wire x1="-4.1275" y1="-3.175" x2="-5.08" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="-5.08" y1="-3.175" x2="-5.08" y2="-1.905" width="0.2" layer="21"/>
-<circle x="-4.445" y="-2.54" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-4.28625" y1="1.27" x2="-4.92125" y2="1.27" width="0.2" layer="21"/>
+<wire x1="-4.92125" y1="1.27" x2="-4.92125" y2="0.635" width="0.2" layer="21"/>
+<wire x1="4.28625" y1="1.27" x2="4.92125" y2="1.27" width="0.2" layer="21"/>
+<wire x1="4.92125" y1="1.27" x2="4.92125" y2="0.635" width="0.2" layer="21"/>
+<wire x1="4.28625" y1="-2.8575" x2="4.92125" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="4.92125" y1="-2.8575" x2="4.92125" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="-4.28625" y1="-2.8575" x2="-4.92125" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="-4.92125" y1="-2.8575" x2="-4.92125" y2="-2.2225" width="0.2" layer="21"/>
+<circle x="-4.445" y="-2.38125" radius="0.1" width="0.2" layer="21"/>
 <circle x="-3.175" y="-1.905" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="MOLEX_ONEBLADE_1MM_214094-0020">
@@ -10582,15 +10582,15 @@ SC89</description>
 <wire x1="-2.27" y1="-2.8" x2="-2.27" y2="1.2" width="0.1" layer="51"/>
 <text x="-3.81" y="-0.635" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
 <text x="3.81" y="-0.635" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
-<wire x1="-1.905" y1="1.27" x2="-2.8575" y2="1.27" width="0.2" layer="21"/>
+<wire x1="-2.2225" y1="1.27" x2="-2.8575" y2="1.27" width="0.2" layer="21"/>
 <wire x1="-2.8575" y1="1.27" x2="-2.8575" y2="0.635" width="0.2" layer="21"/>
-<wire x1="1.905" y1="1.27" x2="2.8575" y2="1.27" width="0.2" layer="21"/>
+<wire x1="2.2225" y1="1.27" x2="2.8575" y2="1.27" width="0.2" layer="21"/>
 <wire x1="2.8575" y1="1.27" x2="2.8575" y2="0.635" width="0.2" layer="21"/>
-<wire x1="1.905" y1="-3.175" x2="2.8575" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="2.8575" y1="-3.175" x2="2.8575" y2="-1.905" width="0.2" layer="21"/>
-<wire x1="-1.905" y1="-3.175" x2="-2.8575" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="-2.8575" y1="-3.175" x2="-2.8575" y2="-1.905" width="0.2" layer="21"/>
-<circle x="-2.2225" y="-2.54" radius="0.1" width="0.2" layer="21"/>
+<wire x1="2.2225" y1="-2.8575" x2="2.8575" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="2.8575" y1="-2.8575" x2="2.8575" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="-2.2225" y1="-2.8575" x2="-2.8575" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="-2.8575" y1="-2.8575" x2="-2.8575" y2="-2.2225" width="0.2" layer="21"/>
+<circle x="-2.38125" y="-2.38125" radius="0.1" width="0.2" layer="21"/>
 <circle x="-1.27" y="-1.905" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="MOLEX_ONEBLADE_1MM_214094-0080">
@@ -10604,21 +10604,21 @@ SC89</description>
 <wire x1="5.27" y1="1.2" x2="5.27" y2="-2.8" width="0.1" layer="51"/>
 <wire x1="5.27" y1="-2.8" x2="-5.27" y2="-2.8" width="0.1" layer="51"/>
 <wire x1="-5.27" y1="-2.8" x2="-5.27" y2="1.2" width="0.1" layer="51"/>
-<text x="-6.985" y="-0.635" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
-<text x="6.985" y="-0.635" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
+<text x="-6.82625" y="-0.635" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
+<text x="6.82625" y="-0.635" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
 <smd name="5" x="0.5" y="-2.175" dx="0.6" dy="1.5" layer="1" roundness="25"/>
 <smd name="6" x="1.5" y="-2.175" dx="0.6" dy="1.5" layer="1" roundness="25"/>
 <smd name="7" x="2.5" y="-2.175" dx="0.6" dy="1.5" layer="1" roundness="25"/>
 <smd name="8" x="3.5" y="-2.175" dx="0.6" dy="1.5" layer="1" roundness="25"/>
-<wire x1="-5.08" y1="1.27" x2="-6.0325" y2="1.27" width="0.2" layer="21"/>
-<wire x1="-6.0325" y1="1.27" x2="-6.0325" y2="0.635" width="0.2" layer="21"/>
-<wire x1="-5.08" y1="-3.175" x2="-6.0325" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="-6.0325" y1="-3.175" x2="-6.0325" y2="-1.905" width="0.2" layer="21"/>
-<wire x1="5.08" y1="-3.175" x2="6.0325" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="6.0325" y1="-3.175" x2="6.0325" y2="-1.905" width="0.2" layer="21"/>
-<wire x1="5.08" y1="1.27" x2="6.0325" y2="1.27" width="0.2" layer="21"/>
-<wire x1="6.0325" y1="1.27" x2="6.0325" y2="0.635" width="0.2" layer="21"/>
-<circle x="-5.3975" y="-2.54" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-5.23875" y1="1.27" x2="-5.87375" y2="1.27" width="0.2" layer="21"/>
+<wire x1="-5.87375" y1="1.27" x2="-5.87375" y2="0.635" width="0.2" layer="21"/>
+<wire x1="-5.23875" y1="-2.8575" x2="-5.87375" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="-5.87375" y1="-2.8575" x2="-5.87375" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="5.23875" y1="-2.8575" x2="5.87375" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="5.87375" y1="-2.8575" x2="5.87375" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="5.23875" y1="1.27" x2="5.87375" y2="1.27" width="0.2" layer="21"/>
+<wire x1="5.87375" y1="1.27" x2="5.87375" y2="0.635" width="0.2" layer="21"/>
+<circle x="-5.3975" y="-2.38125" radius="0.1" width="0.2" layer="21"/>
 <circle x="-4.445" y="-1.905" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="FLIPCHIP_4">
@@ -10683,11 +10683,11 @@ SC89</description>
 <wire x1="-4.445" y1="1.27" x2="-4.445" y2="0.635" width="0.2" layer="21"/>
 <wire x1="3.81" y1="1.27" x2="4.445" y2="1.27" width="0.2" layer="21"/>
 <wire x1="4.445" y1="1.27" x2="4.445" y2="0.635" width="0.2" layer="21"/>
-<wire x1="3.81" y1="-3.175" x2="4.445" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="4.445" y1="-3.175" x2="4.445" y2="-1.905" width="0.2" layer="21"/>
-<wire x1="-3.81" y1="-3.175" x2="-4.445" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="-4.445" y1="-3.175" x2="-4.445" y2="-1.905" width="0.2" layer="21"/>
-<circle x="-3.81" y="-2.54" radius="0.1" width="0.2" layer="21"/>
+<wire x1="3.81" y1="-2.8575" x2="4.445" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="4.445" y1="-2.8575" x2="4.445" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="-3.81" y1="-2.8575" x2="-4.445" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="-4.445" y1="-2.8575" x2="-4.445" y2="-2.2225" width="0.2" layer="21"/>
+<circle x="-3.96875" y="-2.38125" radius="0.1" width="0.2" layer="21"/>
 <circle x="-3.175" y="-1.905" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="MOLEX_ONEBLADE_1MM_214094-0030">
@@ -10702,15 +10702,15 @@ SC89</description>
 <text x="-4.445" y="-0.635" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
 <text x="4.445" y="-0.635" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
 <smd name="3" x="1" y="-2.175" dx="0.6" dy="1.5" layer="1" roundness="25"/>
-<wire x1="-2.54" y1="1.27" x2="-3.4925" y2="1.27" width="0.2" layer="21"/>
+<wire x1="-2.8575" y1="1.27" x2="-3.4925" y2="1.27" width="0.2" layer="21"/>
 <wire x1="-3.4925" y1="1.27" x2="-3.4925" y2="0.635" width="0.2" layer="21"/>
-<wire x1="2.54" y1="1.27" x2="3.4925" y2="1.27" width="0.2" layer="21"/>
+<wire x1="2.8575" y1="1.27" x2="3.4925" y2="1.27" width="0.2" layer="21"/>
 <wire x1="3.4925" y1="1.27" x2="3.4925" y2="0.635" width="0.2" layer="21"/>
-<wire x1="-2.54" y1="-3.175" x2="-3.4925" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="-3.4925" y1="-3.175" x2="-3.4925" y2="-1.905" width="0.2" layer="21"/>
-<wire x1="2.54" y1="-3.175" x2="3.4925" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="3.4925" y1="-3.175" x2="3.4925" y2="-1.905" width="0.2" layer="21"/>
-<circle x="-2.8575" y="-2.54" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-2.8575" y1="-2.8575" x2="-3.4925" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="-3.4925" y1="-2.8575" x2="-3.4925" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="2.8575" y1="-2.8575" x2="3.4925" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="3.4925" y1="-2.8575" x2="3.4925" y2="-2.2225" width="0.2" layer="21"/>
+<circle x="-3.01625" y="-2.38125" radius="0.1" width="0.2" layer="21"/>
 <circle x="-1.905" y="-1.905" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="µQFN-6L">
@@ -11110,11 +11110,11 @@ SC89</description>
 <wire x1="-5.3975" y1="1.27" x2="-5.3975" y2="0.635" width="0.2" layer="21"/>
 <wire x1="4.7625" y1="1.27" x2="5.3975" y2="1.27" width="0.2" layer="21"/>
 <wire x1="5.3975" y1="1.27" x2="5.3975" y2="0.635" width="0.2" layer="21"/>
-<wire x1="4.7625" y1="-3.175" x2="5.3975" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="5.3975" y1="-3.175" x2="5.3975" y2="-1.905" width="0.2" layer="21"/>
-<wire x1="-4.7625" y1="-3.175" x2="-5.3975" y2="-3.175" width="0.2" layer="21"/>
-<wire x1="-5.3975" y1="-3.175" x2="-5.3975" y2="-1.905" width="0.2" layer="21"/>
-<circle x="-4.7625" y="-2.54" radius="0.1" width="0.2" layer="21"/>
+<wire x1="4.7625" y1="-2.8575" x2="5.3975" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="5.3975" y1="-2.8575" x2="5.3975" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="-4.7625" y1="-2.8575" x2="-5.3975" y2="-2.8575" width="0.2" layer="21"/>
+<wire x1="-5.3975" y1="-2.8575" x2="-5.3975" y2="-2.2225" width="0.2" layer="21"/>
+<circle x="-4.92125" y="-2.38125" radius="0.1" width="0.2" layer="21"/>
 <circle x="-3.81" y="-1.905" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="TQFP64-0.5_POWERPAD">
