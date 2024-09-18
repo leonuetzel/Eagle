@@ -10136,22 +10136,22 @@ SC89</description>
 <circle x="-2.54" y="2.54" radius="0.1" width="0.2" layer="21"/>
 </package>
 <package name="SRP3020TA">
-<smd name="1" x="-1.5" y="0" dx="1.1" dy="1.45" layer="1" roundness="25"/>
-<smd name="2" x="1.5" y="0" dx="1.1" dy="1.45" layer="1" roundness="25"/>
+<smd name="1" x="-1.5" y="0" dx="1.1" dy="1.45" layer="1" roundness="50"/>
+<smd name="2" x="1.5" y="0" dx="1.1" dy="1.45" layer="1" roundness="50"/>
 <wire x1="-1.6" y1="1.6" x2="1.6" y2="1.6" width="0.1" layer="51"/>
 <wire x1="1.6" y1="1.6" x2="1.6" y2="-1.6" width="0.1" layer="51"/>
 <wire x1="1.6" y1="-1.6" x2="-1.6" y2="-1.6" width="0.1" layer="51"/>
 <wire x1="-1.6" y1="-1.6" x2="-1.6" y2="1.6" width="0.1" layer="51"/>
-<text x="0" y="3.81" size="1.016" layer="25" align="center">&gt;name</text>
-<text x="0" y="-3.81" size="1.016" layer="27" align="center">&gt;value</text>
-<wire x1="-1.27" y1="2.54" x2="-2.54" y2="2.54" width="0.2" layer="21"/>
-<wire x1="-2.54" y1="2.54" x2="-2.54" y2="1.27" width="0.2" layer="21"/>
-<wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.2" layer="21"/>
-<wire x1="2.54" y1="2.54" x2="2.54" y2="1.27" width="0.2" layer="21"/>
-<wire x1="1.27" y1="-2.54" x2="2.54" y2="-2.54" width="0.2" layer="21"/>
-<wire x1="2.54" y1="-2.54" x2="2.54" y2="-1.27" width="0.2" layer="21"/>
-<wire x1="-1.27" y1="-2.54" x2="-2.54" y2="-2.54" width="0.2" layer="21"/>
-<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="-1.27" width="0.2" layer="21"/>
+<text x="0" y="2.54" size="1.016" layer="25" align="center">&gt;name</text>
+<text x="0" y="-2.54" size="1.016" layer="27" align="center">&gt;value</text>
+<wire x1="-1.27" y1="1.74625" x2="-1.74625" y2="1.74625" width="0.2" layer="21"/>
+<wire x1="-1.74625" y1="1.74625" x2="-1.74625" y2="1.27" width="0.2" layer="21"/>
+<wire x1="1.27" y1="1.74625" x2="1.74625" y2="1.74625" width="0.2" layer="21"/>
+<wire x1="1.74625" y1="1.74625" x2="1.74625" y2="1.27" width="0.2" layer="21"/>
+<wire x1="1.27" y1="-1.74625" x2="1.74625" y2="-1.74625" width="0.2" layer="21"/>
+<wire x1="1.74625" y1="-1.74625" x2="1.74625" y2="-1.27" width="0.2" layer="21"/>
+<wire x1="-1.27" y1="-1.74625" x2="-1.74625" y2="-1.74625" width="0.2" layer="21"/>
+<wire x1="-1.74625" y1="-1.74625" x2="-1.74625" y2="-1.27" width="0.2" layer="21"/>
 </package>
 <package name="MOLEX_ONEBLADE_1MM_214094-0040">
 <smd name="1" x="-1.5" y="-2.175" dx="0.6" dy="1.5" layer="1" roundness="25"/>
@@ -11411,8 +11411,8 @@ SC89</description>
 <wire x1="1.5" y1="1.5" x2="1.5" y2="-1.5" width="0.254" layer="51"/>
 <wire x1="1.5" y1="-1.5" x2="-1.5" y2="-1.5" width="0.254" layer="51"/>
 <wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.254" layer="51"/>
-<text x="-2.8575" y="0" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
-<text x="2.8575" y="0" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
+<text x="-2.54" y="0" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
+<text x="2.54" y="0" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
 <rectangle x1="0.85" y1="1.5" x2="1.15" y2="2.1" layer="51"/>
 <rectangle x1="0.85" y1="-2.1" x2="1.15" y2="-1.5" layer="51"/>
 <rectangle x1="0.35" y1="-2.1" x2="0.65" y2="-1.5" layer="51"/>
@@ -11423,12 +11423,12 @@ SC89</description>
 <rectangle x1="-0.15" y1="1.5" x2="0.15" y2="2.1" layer="51"/>
 <rectangle x1="-0.65" y1="1.5" x2="-0.35" y2="2.1" layer="51"/>
 <rectangle x1="-1.15" y1="1.5" x2="-0.85" y2="2.1" layer="51"/>
-<wire x1="-1.5875" y1="1.905" x2="-1.905" y2="1.905" width="0.2" layer="21"/>
-<wire x1="-1.905" y1="1.905" x2="-1.905" y2="-1.5875" width="0.2" layer="21"/>
-<wire x1="1.5875" y1="1.905" x2="1.905" y2="1.905" width="0.2" layer="21"/>
-<wire x1="1.905" y1="1.905" x2="1.905" y2="-1.905" width="0.2" layer="21"/>
-<wire x1="1.905" y1="-1.905" x2="1.5875" y2="-1.905" width="0.2" layer="21"/>
-<circle x="-1.5875" y="-1.905" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-1.42875" y1="1.5875" x2="-1.74625" y2="1.5875" width="0.2" layer="21"/>
+<wire x1="-1.74625" y1="1.5875" x2="-1.74625" y2="-1.11125" width="0.2" layer="21"/>
+<wire x1="1.42875" y1="1.5875" x2="1.74625" y2="1.5875" width="0.2" layer="21"/>
+<wire x1="1.74625" y1="1.5875" x2="1.74625" y2="-1.5875" width="0.2" layer="21"/>
+<wire x1="1.74625" y1="-1.5875" x2="1.42875" y2="-1.5875" width="0.2" layer="21"/>
+<circle x="-1.74625" y="-1.5875" radius="0.1" width="0.2" layer="21"/>
 <circle x="-0.9525" y="-0.9525" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="WSON6">
@@ -11621,14 +11621,13 @@ SC89</description>
 <wire x1="-1" y1="-1" x2="-1" y2="1" width="0.1" layer="51"/>
 <text x="-2.2225" y="0" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
 <text x="1.905" y="0" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
-<wire x1="-0.9525" y1="1.27" x2="-1.27" y2="1.27" width="0.2" layer="21"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0.635" width="0.2" layer="21"/>
-<wire x1="0.9525" y1="1.27" x2="1.27" y2="1.27" width="0.2" layer="21"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="0.635" width="0.2" layer="21"/>
-<wire x1="-1.27" y1="-1.5875" x2="-0.9525" y2="-1.5875" width="0.2" layer="21"/>
-<wire x1="0.9525" y1="-1.5875" x2="1.27" y2="-1.5875" width="0.2" layer="21"/>
-<wire x1="1.27" y1="-1.5875" x2="1.27" y2="-0.9525" width="0.2" layer="21"/>
-<circle x="-1.27" y="-0.9525" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-0.9525" y1="1.11125" x2="-1.27" y2="1.11125" width="0.2" layer="21"/>
+<wire x1="-1.27" y1="1.11125" x2="-1.27" y2="0.79375" width="0.2" layer="21"/>
+<wire x1="0.9525" y1="1.11125" x2="1.27" y2="1.11125" width="0.2" layer="21"/>
+<wire x1="1.27" y1="1.11125" x2="1.27" y2="0.79375" width="0.2" layer="21"/>
+<wire x1="0.9525" y1="-1.11125" x2="1.27" y2="-1.11125" width="0.2" layer="21"/>
+<wire x1="1.27" y1="-1.11125" x2="1.27" y2="-0.79375" width="0.2" layer="21"/>
+<circle x="-1.27" y="-1.11125" radius="0.1" width="0.2" layer="21"/>
 <circle x="-0.635" y="-0.635" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="BOURNS_DR331">
@@ -11713,15 +11712,14 @@ SC89</description>
 <rectangle x1="-3.4201" y1="3.8001" x2="-2.9299" y2="5.32" layer="51"/>
 <rectangle x1="-4.6901" y1="3.8001" x2="-4.1999" y2="5.32" layer="51"/>
 <rectangle x1="-5.9601" y1="3.8001" x2="-5.4699" y2="5.32" layer="51"/>
-<text x="-8.89" y="0" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
-<text x="8.89" y="0" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
-<wire x1="-6.985" y1="4.445" x2="-7.62" y2="4.445" width="0.2" layer="21"/>
-<wire x1="-7.62" y1="4.445" x2="-7.62" y2="-4.445" width="0.2" layer="21"/>
-<wire x1="-7.62" y1="-4.445" x2="-6.985" y2="-4.445" width="0.2" layer="21"/>
-<wire x1="6.985" y1="4.445" x2="7.62" y2="4.445" width="0.2" layer="21"/>
-<wire x1="7.62" y1="4.445" x2="7.62" y2="-4.445" width="0.2" layer="21"/>
-<wire x1="7.62" y1="-4.445" x2="6.985" y2="-4.445" width="0.2" layer="21"/>
-<circle x="-6.985" y="-3.81" radius="0.1" width="0.2" layer="21"/>
+<text x="-7.9375" y="0" size="1.016" layer="25" rot="R90" align="center">&gt;name</text>
+<text x="7.9375" y="0" size="1.016" layer="27" rot="R90" align="center">&gt;value</text>
+<wire x1="-6.50875" y1="3.65125" x2="-6.82625" y2="3.65125" width="0.2" layer="21"/>
+<wire x1="-6.82625" y1="3.65125" x2="-6.82625" y2="-3.175" width="0.2" layer="21"/>
+<wire x1="6.50875" y1="3.65125" x2="6.82625" y2="3.65125" width="0.2" layer="21"/>
+<wire x1="6.82625" y1="3.65125" x2="6.82625" y2="-3.65125" width="0.2" layer="21"/>
+<wire x1="6.82625" y1="-3.65125" x2="6.50875" y2="-3.65125" width="0.2" layer="21"/>
+<circle x="-6.82625" y="-3.65125" radius="0.1" width="0.2" layer="21"/>
 <circle x="-5.715" y="-3.175" radius="0.1" width="0.2" layer="51"/>
 </package>
 <package name="VG96912-A20-35SNJ">
