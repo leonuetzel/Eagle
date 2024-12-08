@@ -12210,6 +12210,40 @@ SC89</description>
 <circle x="-22.225" y="-0.635" radius="0.1" width="0.2" layer="51"/>
 <pad name="18" x="21.59" y="0" drill="1"/>
 </package>
+<package name="HEADER_20P_1ROW_RM2.54MM_THT">
+<pad name="1" x="-24.13" y="0" drill="1"/>
+<pad name="2" x="-21.59" y="0" drill="1"/>
+<pad name="3" x="-19.05" y="0" drill="1"/>
+<pad name="4" x="-16.51" y="0" drill="1"/>
+<pad name="5" x="-13.97" y="0" drill="1"/>
+<pad name="6" x="-11.43" y="0" drill="1"/>
+<pad name="7" x="-8.89" y="0" drill="1"/>
+<pad name="8" x="-6.35" y="0" drill="1"/>
+<pad name="9" x="-3.81" y="0" drill="1"/>
+<pad name="10" x="-1.27" y="0" drill="1"/>
+<pad name="11" x="1.27" y="0" drill="1"/>
+<pad name="12" x="3.81" y="0" drill="1"/>
+<pad name="13" x="6.35" y="0" drill="1"/>
+<pad name="14" x="8.89" y="0" drill="1"/>
+<pad name="15" x="11.43" y="0" drill="1"/>
+<pad name="16" x="13.97" y="0" drill="1"/>
+<pad name="17" x="16.51" y="0" drill="1"/>
+<pad name="18" x="19.05" y="0" drill="1"/>
+<pad name="19" x="21.59" y="0" drill="1"/>
+<pad name="20" x="24.13" y="0" drill="1"/>
+<wire x1="-25.4" y1="-1.27" x2="-25.4" y2="1.27" width="0.4064" layer="51"/>
+<wire x1="-25.4" y1="1.27" x2="25.4" y2="1.27" width="0.4064" layer="51"/>
+<wire x1="25.4" y1="1.27" x2="25.4" y2="-1.27" width="0.4064" layer="51"/>
+<wire x1="25.4" y1="-1.27" x2="-25.4" y2="-1.27" width="0.4064" layer="51"/>
+<text x="0" y="2.54" size="1.016" layer="25" align="center">&gt;name</text>
+<text x="0" y="-2.54" size="1.016" layer="27" align="center">&gt;value</text>
+<wire x1="-25.4" y1="1.27" x2="-25.4" y2="-1.27" width="0.2" layer="21"/>
+<wire x1="-25.4" y1="-1.27" x2="25.4" y2="-1.27" width="0.2" layer="21"/>
+<wire x1="25.4" y1="-1.27" x2="25.4" y2="1.27" width="0.2" layer="21"/>
+<wire x1="25.4" y1="1.27" x2="-25.4" y2="1.27" width="0.2" layer="21"/>
+<circle x="-26.035" y="-0.635" radius="0.1" width="0.2" layer="21"/>
+<circle x="-24.765" y="-0.635" radius="0.1" width="0.2" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -33905,6 +33939,42 @@ RJ45 T-568B</text>
 <technologies>
 <technology name="">
 <attribute name="ID" value="PJ85775P_R2_00301"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="HEADER_20P" prefix="X">
+<gates>
+<gate name=".A" symbol="HEADER_20" x="0" y="0"/>
+</gates>
+<devices>
+<device name="(RM2.54MM_1ROW_THT)" package="HEADER_20P_1ROW_RM2.54MM_THT">
+<connects>
+<connect gate=".A" pin="PIN1" pad="1"/>
+<connect gate=".A" pin="PIN10" pad="10"/>
+<connect gate=".A" pin="PIN11" pad="11"/>
+<connect gate=".A" pin="PIN12" pad="12"/>
+<connect gate=".A" pin="PIN13" pad="13"/>
+<connect gate=".A" pin="PIN14" pad="14"/>
+<connect gate=".A" pin="PIN15" pad="15"/>
+<connect gate=".A" pin="PIN16" pad="16"/>
+<connect gate=".A" pin="PIN17" pad="17"/>
+<connect gate=".A" pin="PIN18" pad="18"/>
+<connect gate=".A" pin="PIN19" pad="19"/>
+<connect gate=".A" pin="PIN2" pad="2"/>
+<connect gate=".A" pin="PIN20" pad="20"/>
+<connect gate=".A" pin="PIN3" pad="3"/>
+<connect gate=".A" pin="PIN4" pad="4"/>
+<connect gate=".A" pin="PIN5" pad="5"/>
+<connect gate=".A" pin="PIN6" pad="6"/>
+<connect gate=".A" pin="PIN7" pad="7"/>
+<connect gate=".A" pin="PIN8" pad="8"/>
+<connect gate=".A" pin="PIN9" pad="9"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ID" value="" constant="no"/>
 </technology>
 </technologies>
 </device>
