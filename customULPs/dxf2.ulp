@@ -1,0 +1,599 @@
+#usage "<b>DXF Output Tool version 2.20</b><p>\n"
+       "This program creates a DXF file in the same<p>\n"
+       "directory like board or sheet and with the<p>\n"
+       "same file name but with extension '.DXF'.<p>\n" 
+       "Use this ULP only with EAGLE version 4.1 or later!<p>\n" 
+       "This Tool is a part of the EAGLE Power Tools.<p>\n"
+       "Copyright (c) by Falk Stricker Software- und Hardwareloesungen<p>\n"
+       "<author>Author: Falk.Stricker@gmx.de</author>"
+
+/**********************************************************************
+***   DXF output converter v. 2.20 - Copyright (c) by Falk Stricker ***
+***********************************************************************
+This program creates a DXF file in the same directory like board or
+sheet and with the same file name but with extension '.DXF'.
+Start this tool from EAGLE with 'run dxfout;'.
+
+Hint:   Many programs which can read DXF files can't import texts in a
+        correct way. That depends on the import routines of the programs
+        not on the program 'DXFOUT.ULP'.
+
+        solution 1: Contact the producer of that program to get a fixed 
+                    version.
+        solution 2: Change the parameter 'text flag' to '0'. Now no text
+                    attributes will be written into the DXF file. May be
+                    an offset occurs but the import routines of the programs
+                    can now read these files.
+
+adjustable parameters:
+*/
+
+int textflag = 0;       // if you have problems with textimport in the
+                        // programms please set this flag to 0    
+int result = 0;
+int languOpt=0;
+int visibleLayers=1;
+real scale = 1;
+int LayerActive[] = {1};
+string fileName = argv[0];
+string configfile = filedir(fileName) + "config.ini";
+string configULP = filedir(fileName) + "config.ulp";
+
+string descr[] = {"<qt><h3>This program creates a DXF file in the same " +
+                  "directory like board or sheet and with the same file " +
+                  "name but with extension '.DXF'.</h3></qt>","<qt><h3>Dieses " +
+                  "ULP Programm erzeugt eine DXF Datei mit dem gleichen Namen wie " +
+                  "der des Boards bzw. des Schaltplans und der Extension 'dxf'.</h3></qt>"};
+string txt1[]={"DXF out Converter","DXF out Konverter"};
+string txt2[]={"Scale Factor","Skalierungsfaktor"};
+string txt3[]={"-&Cancel","-&Abbruch"};
+string txt4[]={"&Export all Layers","&Exportiere alle Layer"};
+string txt5[]={"E&xport only visible Layers","E&xportiere nur sichtbare Layer"};
+string txt6[]={"Options","Optionen"};
+
+
+result = dlgDialog(txt1[languOpt])
+{
+   dlgHBoxLayout 
+   {
+      dlgLabel(descr[languOpt]);
+   }
+   dlgHBoxLayout 
+   {
+      dlgGroup(txt6[languOpt]){ 
+      dlgLabel(txt2[languOpt]);  
+      dlgRealEdit(scale,0.00000001,100000000);
+      dlgLabel(" ");  
+      dlgRadioButton(txt4[languOpt], visibleLayers);
+      dlgRadioButton(txt5[languOpt], visibleLayers);}
+   }
+   dlgVBoxLayout dlgSpacing(10);       
+   dlgHBoxLayout   
+   {
+      dlgPushButton("+&Ok") dlgAccept();
+      dlgPushButton(txt3[languOpt]) dlgReject();
+   }         
+};
+if (result == 0) exit (0);
+
+real rotx(int x,int y,real angle)
+{
+    real a, b, c, alpha;
+    b=x;
+    c=y;
+    if (b==0 && c==0) return 0;
+    a = sqrt(b*b + c*c);
+    alpha = acos(b/a);
+    if (c<0) alpha = 2*PI - alpha;
+    return a*cos((angle*PI/180) + alpha);
+}
+
+real roty(int x,int y,real angle)
+{
+    real a, b, c, alpha;
+    b=x;
+    c=y;
+    if (b==0 && c==0) return 0;
+    a = sqrt(b*b + c*c);
+    alpha = acos(b/a);
+    if (c<0) alpha = 2*PI - alpha;
+    return a*sin((angle*PI/180) + alpha);
+}
+
+real s(int i)
+{
+  return u2mil(i)*scale;
+}
+
+void writeLayer(UL_LAYER L)
+{
+  int col[] = {7,13,11,12,9,14,2,8,15,5,3,4,1,6,10,1}, visib, colo;
+  if (L.visible)
+     {LayerActive[L.number] = 1;
+     visib = 1;}
+     else
+     {visib = -1;}
+  if (L.color>15)
+     {colo = 1;}
+     else
+     {colo = L.color;}
+  printf("  0\nLAYER\n  2\n%d\n 70\n64\n 62\n%d\n  6\nCONTINUOUS\n", L.number, visib * col[colo]);
+}
+
+void writeArea(int x1, int y1, int x2, int y2)
+{
+  printf("  9\n$EXTMIN\n 10\n%f\n 20\n%f\n", s(x1), s(y1));
+  printf("  9\n$EXTMAX\n 10\n%f\n 20\n%f\n", s(x2), s(y2));
+}
+
+void writeHeader()
+{
+  printf("  0\nSECTION\n  2\nHEADER\n  9\n$ANGDIR\n 70\n0\n");
+  if (board)     board(B)       writeArea(B.area.x1, B.area.y1, B.area.x2, B.area.y2);
+  if (schematic) schematic(SCH) SCH.sheets(SH) writeArea(SH.area.x1, SH.area.y1, SH.area.x2, SH.area.y2);
+  printf("  0\nENDSEC\n  0\nSECTION\n  2\nTABLES\n  0\nTABLE\n");
+  printf("  2\nLTYPE\n 70\n1\n  0\nLTYPE\n  2\n");
+  printf("CONTINUOUS\n 70\n64\n  3\nSolid line\n");
+  printf(" 72\n65\n 73\n0\n 40\n0.00\n  0\nENDTAB\n");
+  printf("  0\nTABLE\n  2\nLAYER\n 70\n256\n");
+  if (board)     board(B)       B.layers(L)   writeLayer(L);
+  if (schematic) schematic(SCH) SCH.layers(L) writeLayer(L);
+  printf("  0\nENDTAB\n  0\nTABLE\n  2\nSTYLE\n 70\n1\n  0\n");
+  printf("STYLE\n  2\nSTANDARD\n 70\n0\n 40\n");
+  printf("0.0000\n 50\n0.0000\n 71\n0\n 41\n");
+  printf("1.0000\n 42\n1.0000\n  3\nMONOTXT\n  0\n");
+  printf("ENDTAB\n  0\nTABLE\n  2\nVIEW\n 70\n");
+  printf("1\n  0\nENDTAB\n  0\nENDSEC\n  0\nSECTION\n");
+  printf("  2\nBLOCKS\n  0\nENDSEC\n  0\nSECTION\n");
+  printf("  2\nENTITIES\n");
+}
+
+void writeVertex(int layer, real x, real y, real gr42)
+{
+  printf("  0\nVERTEX\n  8\n%d\n  6\nCONTINUOUS\n 10\n%f\n 20\n%f\n 30\n0.00\n 42\n%f\n", layer, s(x),s(y), gr42);
+}
+
+void writeArc(UL_ARC A)
+{
+  if ((LayerActive[A.layer] && visibleLayers==1) || visibleLayers==0){
+  real a;
+  a=1;
+  real ang = abs(A.angle2-A.angle1);
+  if (ang > 360) ang -= 360;
+  printf("  0\nPOLYLINE\n  8\n%d\n  6\nCONTINUOUS\n 66\n1\n", A.layer);
+  printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n0\n 40\n%f\n 41\n%f\n", s(A.width), s(A.width));
+  if (ang > 180)
+  {
+     writeVertex(A.layer, A.x1, A.y1, a);
+     ang -= 180;
+     writeVertex(A.layer, A.x1 - 2 * (A.x1 - A.xc), A.y1 - 2 * (A.y1 - A.yc), a*abs(tan(0.00436332313*ang)));
+     writeVertex(A.layer, A.x2, A.y2, 0.0);
+     printf("0\nSEQEND\n8\n0\n");
+  }
+  else
+  {
+     writeVertex(A.layer, A.x1, A.y1, a*abs(tan(0.00436332313*ang)));
+     writeVertex(A.layer, A.x2, A.y2, 0.0);
+     printf("0\nSEQEND\n8\n0\n");
+  }
+}}
+
+void writeCircle(UL_CIRCLE C)
+{
+  if ((LayerActive[C.layer] && visibleLayers==1) || (visibleLayers==0)){
+  printf("  0\nPOLYLINE\n  8\n%d\n  6\nCONTINUOUS\n 66\n1\n", C.layer);
+  printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n1\n 40\n%f\n 41\n%f\n", s(C.width), s(C.width));
+  writeVertex(C.layer, C.x - C.radius, C.y, 1.0);
+  writeVertex(C.layer, C.x + C.radius, C.y, 1.0);
+  writeVertex(C.layer, C.x - C.radius, C.y, 0.0);
+  printf("0\nSEQEND\n8\n0\n");
+}}
+
+void writeWire(UL_WIRE W)
+{
+  if ((LayerActive[W.layer] && visibleLayers==1) || (visibleLayers==0)){
+  printf("  0\nPOLYLINE\n  8\n%d\n  6\nCONTINUOUS\n 66\n1\n", W.layer);
+  printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n0\n 40\n%f\n 41\n%f\n", s(W.width), s(W.width));
+  writeVertex(W.layer, W.x1, W.y1, 0.0);
+  writeVertex(W.layer, W.x2, W.y2, 0.0);
+  printf("  0\nSEQEND\n  8\n0\n");
+}}
+
+void writeHole(UL_HOLE H)
+{
+  if ((LayerActive[LAYER_DIMENSION] && visibleLayers==1) || (visibleLayers==0)){
+  printf("  0\nCIRCLE\n  8\n45\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(H.x),s(H.y),s(H.drill*0.5));
+}}
+
+int tx2 = 0, ty2 = 0;
+
+void GetTextPoint(UL_TEXT T)
+{
+  if ((LayerActive[T.layer] && visibleLayers==1) || (visibleLayers==0)){
+  int w, ex, ey;
+
+  ex = tx2 = T.x;
+  ey = ty2 = T.y;
+  T.wires(W) {
+    tx2 = (W.x1 > ex) ? max(W.x1, max(W.x2, tx2)) : min(W.x1, min(W.x2, tx2));
+    ty2 = (W.y1 > ey) ? max(W.y1, max(W.y2, ty2)) : min(W.y1, min(W.y2, ty2));
+    w = W.width;
+    }
+  w /= 2;
+  tx2 += (tx2 > ex) ? w : -w;
+  ty2 += (ty2 > ey) ? w : -w;
+}}
+
+int getNewXPoint(UL_TEXT T)
+{
+  if ((LayerActive[T.layer] && visibleLayers==1) || (visibleLayers==0)){
+  int newX, x2, wh;
+
+  newX=T.x;
+  x2=T.x;
+  T.wires(TW)
+  {
+     if (TW.x1 < x2) newX = min(TW.x1, min(TW.x2, newX));
+     if (TW.x1 > x2) newX = max(TW.x1, max(TW.x2, newX));
+     wh=TW.width/2;
+  }
+  return newX>x2 ? wh: -wh;
+}}
+
+int getNewYPoint(UL_TEXT T)
+{
+  if ((LayerActive[T.layer] && visibleLayers==1) || (visibleLayers==0)){
+  int newY, y2, wh;
+
+  newY=T.y;
+  y2=T.y;
+  T.wires(TW)
+  {
+     if (TW.y1 < y2) newY = min(TW.y1, min(TW.y2, newY));
+     if (TW.y1 > y2) newY = max(TW.y1, max(TW.y2, newY));
+     wh=TW.width/2;
+  }
+  return newY>y2 ? wh: -wh;
+}}
+
+void writeText(UL_TEXT T)
+{
+  if ((LayerActive[T.layer] && visibleLayers==1) || (visibleLayers==0)){
+  int mirr=0, angle, adj, ref, vertaligm, horizaligm, x, y;
+  angle = T.angle;
+
+  x = T.x;
+  y = T.y;
+  mirr=T.mirror;
+  if (mirr)
+  {
+    adj = 0;
+    if      (angle ==   0) { ref = 1; }
+    else if (angle ==  90) { ref = 3; }
+    else if (angle == 180) { ref = 3; angle =  0; }
+    else if (angle == 270) { ref = 1; angle = 90; }
+  }
+  else
+  {
+    adj=1;
+  }
+  adj = adj && 90 < angle && angle <= 270;
+  if (mirr) 
+  {
+     angle = -angle;
+     mirr=2;
+     if (angle < 0)
+        angle += 360;
+  }
+  if (adj) 
+  {
+    angle -= 180;
+    if (angle < 0)
+      angle += 360;
+    ref = 2;
+  }
+  printf("  0\nTEXT\n  1\n%s\n  8\n%d\n 10\n%f\n 20\n%f\n 40\n%f\n 50\n%d\n", T.value, T.layer, s(x), s(y), s(T.size), angle);
+  if (ref) printf(" 71\n%d\n 72\n%d\n 73\n%d\n 11\n%f\n21\n%f\n", mirr, ref == 1 || ref == 2 ? 2 : 0, ref >= 2 ? 3 : 0, s(T.x), s(T.y));  
+}}
+
+void writeRectangle(UL_RECTANGLE R)
+{
+  if ((LayerActive[R.layer] && visibleLayers==1) || (visibleLayers==0)){
+  real x1,x2,y1,y2,xc,yc;
+  xc=(R.x1+R.x2)/2;
+  yc=(R.y1+R.y2)/2;
+  x1=rotx(R.x1-xc,R.y1-yc,R.angle)+xc;
+  x2=rotx(R.x2-xc,R.y2-yc,R.angle)+xc;
+  y1=roty(R.x1-xc,R.y1-yc,R.angle)+yc;
+  y2=roty(R.x2-xc,R.y2-yc,R.angle)+yc;
+  printf("  0\nSOLID\n  8\n%d\n 10\n%f\n 20\n%f\n", R.layer, s(x1), s(y1));
+  printf(" 11\n%f\n 21\n%f\n", s(x1), s(y2));
+  printf(" 12\n%f\n 22\n%f\n", s(x2), s(y1));
+  printf(" 13\n%f\n 23\n%f\n", s(x2), s(y2));
+}}
+
+void writePolygon(UL_POLYGON O)
+{
+  if ((LayerActive[O.layer] && visibleLayers==1) || (visibleLayers==0)){
+  O.wires(X) writeWire(X);
+}}
+
+void writeVia(UL_VIA V)
+{
+  if ((LayerActive[LAYER_VIAS] && visibleLayers==1) || (visibleLayers==0)){
+  switch (V.shape[LAYER_VIAS])
+  {
+     case VIA_SHAPE_ROUND:   printf("  0\nCIRCLE\n  8\n18\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(V.x),s(V.y),s(V.diameter[LAYER_VIAS]*0.5));
+                             printf("  0\nCIRCLE\n  8\n18\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(V.x),s(V.y),s(V.drill*0.5));
+                             break;
+     case VIA_SHAPE_SQUARE:  printf("  0\nPOLYLINE\n  8\n18\n  6\nCONTINUOUS\n 66\n1\n");
+                             printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n1\n 40\n0.00\n 41\n0.00\n");
+                             writeVertex(18, V.x-V.diameter[LAYER_VIAS]*0.5, V.y-V.diameter[LAYER_VIAS]*0.5, 0.0);
+                             writeVertex(18, V.x+V.diameter[LAYER_VIAS]*0.5, V.y-V.diameter[LAYER_VIAS]*0.5, 0.0);
+                             writeVertex(18, V.x+V.diameter[LAYER_VIAS]*0.5, V.y+V.diameter[LAYER_VIAS]*0.5, 0.0);
+                             writeVertex(18, V.x-V.diameter[LAYER_VIAS]*0.5, V.y+V.diameter[LAYER_VIAS]*0.5, 0.0);
+                             printf("  0\nSEQEND\n  8\n0\n");
+                             printf("  0\nCIRCLE\n  8\n18\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(V.x),s(V.y),s(V.drill*0.5));
+                             break;
+     case VIA_SHAPE_OCTAGON: printf("  0\nPOLYLINE\n  8\n18\n  6\nCONTINUOUS\n 66\n1\n");
+                             printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n1\n 40\n0.00\n 41\n0.00\n");
+                             writeVertex(18, V.x-V.diameter[LAYER_VIAS]*0.5, V.y-V.diameter[LAYER_VIAS]*0.2, 0.0);
+                             writeVertex(18, V.x-V.diameter[LAYER_VIAS]*0.2, V.y-V.diameter[LAYER_VIAS]*0.5, 0.0);
+                             writeVertex(18, V.x+V.diameter[LAYER_VIAS]*0.2, V.y-V.diameter[LAYER_VIAS]*0.5, 0.0);
+                             writeVertex(18, V.x+V.diameter[LAYER_VIAS]*0.5, V.y-V.diameter[LAYER_VIAS]*0.2, 0.0);
+                             writeVertex(18, V.x+V.diameter[LAYER_VIAS]*0.5, V.y+V.diameter[LAYER_VIAS]*0.2, 0.0);
+                             writeVertex(18, V.x+V.diameter[LAYER_VIAS]*0.2, V.y+V.diameter[LAYER_VIAS]*0.5, 0.0);
+                             writeVertex(18, V.x-V.diameter[LAYER_VIAS]*0.2, V.y+V.diameter[LAYER_VIAS]*0.5, 0.0);
+                             writeVertex(18, V.x-V.diameter[LAYER_VIAS]*0.5, V.y+V.diameter[LAYER_VIAS]*0.2, 0.0);
+                             printf("  0\nSEQEND\n  8\n0\n");
+                             printf("  0\nCIRCLE\n  8\n18\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(V.x),s(V.y),s(V.drill*0.5));
+                             break;
+  }
+}}
+
+void writeEnd(void)
+{
+  printf("  0\nENDSEC\n  0\nEOF\n");
+}
+
+void writeContact(UL_CONTACT C)
+{
+  if ((LayerActive[LAYER_PADS] && visibleLayers==1) || (visibleLayers==0)){
+  if (C.pad)
+  {
+  real lx,lx2,ly,ly2;
+  switch (C.pad.shape[LAYER_TOP])
+     {
+     case PAD_SHAPE_ROUND:   printf("  0\nCIRCLE\n  8\n17\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(C.pad.x),s(C.pad.y),s(C.pad.diameter[LAYER_TOP]*0.5));
+                             printf("  0\nCIRCLE\n  8\n17\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(C.pad.x),s(C.pad.y),s(C.pad.drill*0.5));
+                             break;
+     case PAD_SHAPE_SQUARE:  printf("  0\nPOLYLINE\n  8\n17\n  6\nCONTINUOUS\n 66\n1\n");
+                             printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n1\n 40\n0.00\n 41\n0.00\n");
+                             writeVertex(17, C.pad.x-C.pad.diameter[LAYER_TOP]*0.5, C.pad.y-C.pad.diameter[LAYER_TOP]*0.5, 0.0);
+                             writeVertex(17, C.pad.x+C.pad.diameter[LAYER_TOP]*0.5, C.pad.y-C.pad.diameter[LAYER_TOP]*0.5, 0.0);
+                             writeVertex(17, C.pad.x+C.pad.diameter[LAYER_TOP]*0.5, C.pad.y+C.pad.diameter[LAYER_TOP]*0.5, 0.0);
+                             writeVertex(17, C.pad.x-C.pad.diameter[LAYER_TOP]*0.5, C.pad.y+C.pad.diameter[LAYER_TOP]*0.5, 0.0);
+                             printf("  0\nSEQEND\n  8\n0\n");
+                             printf("  0\nCIRCLE\n  8\n17\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(C.pad.x),s(C.pad.y),s(C.pad.drill*0.5));
+                             break;
+     case PAD_SHAPE_OCTAGON: printf("  0\nPOLYLINE\n  8\n17\n  6\nCONTINUOUS\n 66\n1\n");
+                             printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n1\n 40\n0.00\n 41\n0.00\n");
+                             writeVertex(17, C.pad.x-C.pad.diameter[LAYER_TOP]*0.5, C.pad.y-C.pad.diameter[LAYER_TOP]*0.2, 0.0);
+                             writeVertex(17, C.pad.x-C.pad.diameter[LAYER_TOP]*0.2, C.pad.y-C.pad.diameter[LAYER_TOP]*0.5, 0.0);
+                             writeVertex(17, C.pad.x+C.pad.diameter[LAYER_TOP]*0.2, C.pad.y-C.pad.diameter[LAYER_TOP]*0.5, 0.0);
+                             writeVertex(17, C.pad.x+C.pad.diameter[LAYER_TOP]*0.5, C.pad.y-C.pad.diameter[LAYER_TOP]*0.2, 0.0);
+                             writeVertex(17, C.pad.x+C.pad.diameter[LAYER_TOP]*0.5, C.pad.y+C.pad.diameter[LAYER_TOP]*0.2, 0.0);
+                             writeVertex(17, C.pad.x+C.pad.diameter[LAYER_TOP]*0.2, C.pad.y+C.pad.diameter[LAYER_TOP]*0.5, 0.0);
+                             writeVertex(17, C.pad.x-C.pad.diameter[LAYER_TOP]*0.2, C.pad.y+C.pad.diameter[LAYER_TOP]*0.5, 0.0);
+                             writeVertex(17, C.pad.x-C.pad.diameter[LAYER_TOP]*0.5, C.pad.y+C.pad.diameter[LAYER_TOP]*0.2, 0.0);
+                             printf("  0\nSEQEND\n  8\n0\n");
+                             printf("  0\nCIRCLE\n  8\n17\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(C.pad.x),s(C.pad.y),s(C.pad.drill*0.5));
+                             break;
+     case PAD_SHAPE_LONG:printf("  0\nPOLYLINE\n  8\n17\n  6\nCONTINUOUS\n 66\n1\n");
+                             printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n1\n 40\n0.00\n 41\n0.00\n");
+                             if ((C.pad.angle>=0 && C.pad.angle<90) || (C.pad.angle>=180 && C.pad.angle<270))
+                             {
+                                lx=C.pad.diameter[LAYER_TOP]*0.5*(1+C.pad.elongation/100);
+                                lx2=lx-C.pad.diameter[LAYER_TOP]*0.3;
+                                ly=C.pad.diameter[LAYER_TOP]*0.5;
+                                ly2=ly-C.pad.diameter[LAYER_TOP]*0.3;
+                             }
+                             else
+                             {
+                                lx=C.pad.diameter[LAYER_TOP]*0.5;
+                                lx2=lx-C.pad.diameter[LAYER_TOP]*0.3;
+                                ly=C.pad.diameter[LAYER_TOP]*0.5*(1+C.pad.elongation/100);
+                                ly2=ly-C.pad.diameter[LAYER_TOP]*0.3;
+                             }
+                             //printf("Pad: diameter: %f, x: %f, y: %f \n",s(C.pad.diameter[LAYER_TOP]),s(C.pad.x),s(C.pad.y));
+                             writeVertex(17, C.pad.x-lx, C.pad.y-ly2, 0.0);
+                             writeVertex(17, C.pad.x-lx2, C.pad.y-ly, 0.0);
+                             writeVertex(17, C.pad.x+lx2, C.pad.y-ly, 0.0);
+                             writeVertex(17, C.pad.x+lx, C.pad.y-ly2, 0.0);
+                             writeVertex(17, C.pad.x+lx, C.pad.y+ly2, 0.0);
+                             writeVertex(17, C.pad.x+lx2, C.pad.y+ly, 0.0);
+                             writeVertex(17, C.pad.x-lx2, C.pad.y+ly, 0.0);
+                             writeVertex(17, C.pad.x-lx, C.pad.y+ly2, 0.0);
+                             printf("  0\nSEQEND\n  8\n0\n");
+                             printf("  0\nCIRCLE\n  8\n17\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(C.pad.x),s(C.pad.y),s(C.pad.drill*0.5));
+                             break;
+     case PAD_SHAPE_OFFSET:  printf("  0\nPOLYLINE\n  8\n17\n  6\nCONTINUOUS\n 66\n1\n");
+                             printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n1\n 40\n0.00\n 41\n0.00\n");
+                             if ((C.pad.angle>=0 && C.pad.angle<90) || (C.pad.angle>=180 && C.pad.angle<270))
+                             {
+                                lx=C.pad.diameter[LAYER_TOP]*0.5*(1+C.pad.elongation/100);
+                                lx2=lx-C.pad.diameter[LAYER_TOP]*0.3;
+                                ly=C.pad.diameter[LAYER_TOP]*0.5;
+                                ly2=ly-C.pad.diameter[LAYER_TOP]*0.3;
+                             }
+                             else
+                             {
+                                lx=C.pad.diameter[LAYER_TOP]*0.5;
+                                lx2=lx-C.pad.diameter[LAYER_TOP]*0.3;
+                                ly=C.pad.diameter[LAYER_TOP]*0.5*(1+C.pad.elongation/100);
+                                ly2=ly-C.pad.diameter[LAYER_TOP]*0.3;
+                             }
+                             writeVertex(17, C.pad.x-lx, C.pad.y-ly2, 0.0);
+                             writeVertex(17, C.pad.x-lx2, C.pad.y-ly, 0.0);
+                             writeVertex(17, C.pad.x+lx2, C.pad.y-ly, 0.0);
+                             writeVertex(17, C.pad.x+lx, C.pad.y-ly2, 0.0);
+                             writeVertex(17, C.pad.x+lx, C.pad.y+ly2, 0.0);
+                             writeVertex(17, C.pad.x+lx2, C.pad.y+ly, 0.0);
+                             writeVertex(17, C.pad.x-lx2, C.pad.y+ly, 0.0);
+                             writeVertex(17, C.pad.x-lx, C.pad.y+ly2, 0.0);
+                             printf("  0\nSEQEND\n  8\n0\n");
+                             if (C.pad.angle>=0 && C.pad.angle<90)
+                             {
+                                lx=C.pad.x-lx/2;
+                                ly=C.pad.y;
+                             }
+                             if (C.pad.angle>=90 && C.pad.angle<180)
+                             {
+                                lx=C.pad.x;
+                                ly=C.pad.y-lx/2;
+                             }
+                             if (C.pad.angle>=180 && C.pad.angle<270)
+                             {
+                                lx=C.pad.x+lx/2;
+                                ly=C.pad.y;
+                             }
+                             else
+                             {
+                                lx=C.pad.x+lx/2;
+                                ly=C.pad.y;
+                             }
+           
+                             printf("  0\nCIRCLE\n  8\n17\n 10\n%f\n 20\n%f\n 39\n0.00\n 40\n%f\n", s(C.pad.x),s(C.pad.y),s(C.pad.drill*0.5));
+                             break;
+     }
+  }
+}}
+
+void writeJunction(UL_JUNCTION J)
+{
+  printf("  0\nPOLYLINE\n  8\n91\n  6\nCONTINUOUS\n 66\n1\n");
+  printf(" 10\n0.00\n 20\n0.00\n 30\n0.00\n 70\n1\n 40\n%f\n 41\n%f\n", s(J.diameter*0.5), s(J.diameter*0.5));
+  writeVertex(91, J.x - J.diameter*0.25, J.y, 1.0);
+  writeVertex(91, J.x + J.diameter*0.25, J.y, 1.0);
+  writeVertex(91, J.x - J.diameter*0.25, J.y, 0.0);
+  printf("0\nSEQEND\n8\n0\n");
+}
+
+
+void writePin(UL_PIN P)
+{
+  P.circles(X) writeCircle(X);
+  P.wires(X) writeWire(X);
+  P.texts(X) writeText(X);
+}
+
+void writeSymbol(UL_SYMBOL S)
+{
+  S.wires(W) 
+	if (W.arc)
+	{
+		writeArc(W.arc);
+	}
+	else
+	{	
+		writeWire(W);
+	}
+  S.pins(P)  writePin(P);
+  S.texts(T) writeText(T);
+}
+
+if (board) board(B)
+{
+  output(filesetext(B.name,".DXF"))
+  {
+     writeHeader();
+//     B.arcs(A) writeArc(A);
+     B.circles(C) writeCircle(C);
+     B.holes(H) writeHole(H);
+     B.rectangles(R) writeRectangle(R);
+     B.texts(T) writeText(T);
+     B.wires(W) 
+	if (W.arc)
+	{
+		writeArc(W.arc);
+	}
+	else
+	{	
+		writeWire(W);
+	}
+
+     B.polygons(O) writePolygon(O);
+     B.elements(E)
+     {
+        E.texts(T) writeText(T);
+        E.package.contacts(C) writeContact(C);
+//        E.package.arcs(A) writeArc(A);
+        E.package.circles(C) writeCircle(C);
+        E.package.holes(H) writeHole(H);
+        E.package.rectangles(R) writeRectangle(R);
+        E.package.texts(T) writeText(T);
+        E.package.wires(W) 
+	if (W.arc)
+	{
+		writeArc(W.arc);
+	}
+	else
+	{	
+		writeWire(W);
+	}
+        E.package.polygons(O) writePolygon(O);
+     }
+     B.signals(S)
+     {
+        S.polygons(O) writePolygon(O);
+        S.vias(V) writeVia(V);
+        S.wires(W) writeWire(W);
+     }
+     writeEnd();
+  }
+}
+
+if (schematic) schematic(SCH) SCH.sheets(SH)
+{
+  output(filesetext(SCH.name,".DXF"))
+  {
+     writeHeader();
+//     SH.arcs(A) writeArc(A);
+     SH.busses(B) B.segments(S)
+     {
+        S.wires(W) 
+		if (W.arc)
+		{
+			writeArc(W.arc);
+		}
+		else
+		{	
+			writeWire(W);
+		}
+
+        S.texts(T) writeText(T);
+     }
+     SH.circles(C) writeCircle(C);
+     SH.nets(N) N.segments(S)
+     {
+        S.wires(W) writeWire(W);
+        S.texts(T) writeText(T);
+        S.junctions(J) writeJunction(J);
+     }
+     SH.parts(P)
+     {
+        P.instances(I)
+        {
+           writeSymbol(I.gate.symbol);
+           I.texts(T) writeText(T);
+        }
+     }
+     SH.polygons(O) writePolygon(O);
+     SH.rectangles(R) writeRectangle(R);
+     SH.texts(T) writeText(T);
+     SH.wires(W) writeWire(W);
+     writeEnd();
+     break;
+  }
+}
+
