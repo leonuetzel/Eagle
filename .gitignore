@@ -8,3 +8,7 @@
 
 # DXF Import Config Files
 **.cfg
+
+
+#	Private Libraries
+**Private.lbr
