@@ -18457,8 +18457,8 @@ y = -(Size - 1.75)mm relative to Origin
 <pad name="24" x="-16.5" y="1.5" drill="1.1"/>
 </package>
 <package name="FIDUCIAL_1X2">
-<smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100"/>
-<polygon width="0" layer="41">
+<smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" thermals="no" cream="no"/>
+<polygon width="0" layer="29">
 <vertex x="-1" y="0" curve="-90"/>
 <vertex x="0" y="1" curve="-90"/>
 <vertex x="1" y="0" curve="-90"/>
@@ -18467,35 +18467,41 @@ y = -(Size - 1.75)mm relative to Origin
 <text x="0" y="1.905" size="1.016" layer="25" align="center">&gt;name</text>
 <text x="0" y="-1.905" size="1.016" layer="27" align="center">&gt;value</text>
 <circle x="0" y="0" radius="1.1" width="0.1" layer="51"/>
+<polygon width="0" layer="1" pour="cutout">
+<vertex x="-1" y="0" curve="-90"/>
+<vertex x="0" y="1" curve="-90"/>
+<vertex x="1" y="0" curve="-90"/>
+<vertex x="0" y="-1" curve="-90"/>
+</polygon>
 </package>
 <package name="WE-MMCX_66013002121501">
-	<pad name="GND_4" x="-1.27" y="1.27" drill="0.8"/>
-	<pad name="GND_3" x="1.27" y="1.27" drill="0.8"/>
-	<pad name="GND_1" x="-1.27" y="-1.27" drill="0.8"/>
-	<pad name="GND_2" x="1.27" y="-1.27" drill="0.8"/>
-	<pad name="SIGNAL" x="0" y="0" drill="0.8"/>
-	<wire x1="-1.75" y1="1.75" x2="1.75" y2="1.75" width="0.254" layer="51"/>
-	<wire x1="1.75" y1="1.75" x2="1.75" y2="-1.75" width="0.254" layer="51"/>
-	<wire x1="1.75" y1="-1.75" x2="-1.75" y2="-1.75" width="0.254" layer="51"/>
-	<wire x1="-1.75" y1="-1.75" x2="-1.75" y2="1.75" width="0.254" layer="51"/>
-	<wire x1="-1.75" y1="-1.75" x2="-1.75" y2="-4.55" width="0.1" layer="51" style="shortdash"/>
-	<wire x1="-1.75" y1="-4.55" x2="1.75" y2="-4.55" width="0.1" layer="51" style="shortdash"/>
-	<wire x1="1.75" y1="-4.55" x2="1.75" y2="-1.75" width="0.1" layer="51" style="shortdash"/>
-	<wire x1="0" y1="-3.96875" x2="0" y2="-4.445" width="0.05" layer="51"/>
-	<wire x1="0" y1="-4.445" x2="-0.15875" y2="-4.28625" width="0.05" layer="51"/>
-	<wire x1="0" y1="-4.445" x2="0.15875" y2="-4.28625" width="0.05" layer="51"/>
-	<text x="0" y="-3.65125" size="0.3048" layer="51" align="center">Front</text>
-	<wire x1="-1.27" y1="2.2225" x2="-2.2225" y2="2.2225" width="0.2" layer="21"/>
-	<wire x1="-2.2225" y1="2.2225" x2="-2.2225" y2="1.27" width="0.2" layer="21"/>
-	<wire x1="1.27" y1="2.2225" x2="2.2225" y2="2.2225" width="0.2" layer="21"/>
-	<wire x1="2.2225" y1="2.2225" x2="2.2225" y2="1.27" width="0.2" layer="21"/>
-	<wire x1="1.27" y1="-2.2225" x2="2.2225" y2="-2.2225" width="0.2" layer="21"/>
-	<wire x1="2.2225" y1="-2.2225" x2="2.2225" y2="-1.27" width="0.2" layer="21"/>
-	<wire x1="-1.27" y1="-2.2225" x2="-2.2225" y2="-2.2225" width="0.2" layer="21"/>
-	<wire x1="-2.2225" y1="-2.2225" x2="-2.2225" y2="-1.27" width="0.2" layer="21"/>
-	<text x="0" y="4.445" size="1.016" layer="25" align="center">&gt;name</text>
-	<text x="0" y="3.175" size="1.016" layer="27" align="center">&gt;value</text>
-	</package>
+<pad name="GND_4" x="-1.27" y="1.27" drill="0.8"/>
+<pad name="GND_3" x="1.27" y="1.27" drill="0.8"/>
+<pad name="GND_1" x="-1.27" y="-1.27" drill="0.8"/>
+<pad name="GND_2" x="1.27" y="-1.27" drill="0.8"/>
+<pad name="SIGNAL" x="0" y="0" drill="0.8"/>
+<wire x1="-1.75" y1="1.75" x2="1.75" y2="1.75" width="0.254" layer="51"/>
+<wire x1="1.75" y1="1.75" x2="1.75" y2="-1.75" width="0.254" layer="51"/>
+<wire x1="1.75" y1="-1.75" x2="-1.75" y2="-1.75" width="0.254" layer="51"/>
+<wire x1="-1.75" y1="-1.75" x2="-1.75" y2="1.75" width="0.254" layer="51"/>
+<wire x1="-1.75" y1="-1.75" x2="-1.75" y2="-4.55" width="0.1" layer="51" style="shortdash"/>
+<wire x1="-1.75" y1="-4.55" x2="1.75" y2="-4.55" width="0.1" layer="51" style="shortdash"/>
+<wire x1="1.75" y1="-4.55" x2="1.75" y2="-1.75" width="0.1" layer="51" style="shortdash"/>
+<wire x1="0" y1="-3.96875" x2="0" y2="-4.445" width="0.05" layer="51"/>
+<wire x1="0" y1="-4.445" x2="-0.15875" y2="-4.28625" width="0.05" layer="51"/>
+<wire x1="0" y1="-4.445" x2="0.15875" y2="-4.28625" width="0.05" layer="51"/>
+<text x="0" y="-3.65125" size="0.3048" layer="51" align="center">Front</text>
+<wire x1="-1.27" y1="2.2225" x2="-2.2225" y2="2.2225" width="0.2" layer="21"/>
+<wire x1="-2.2225" y1="2.2225" x2="-2.2225" y2="1.27" width="0.2" layer="21"/>
+<wire x1="1.27" y1="2.2225" x2="2.2225" y2="2.2225" width="0.2" layer="21"/>
+<wire x1="2.2225" y1="2.2225" x2="2.2225" y2="1.27" width="0.2" layer="21"/>
+<wire x1="1.27" y1="-2.2225" x2="2.2225" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="2.2225" y1="-2.2225" x2="2.2225" y2="-1.27" width="0.2" layer="21"/>
+<wire x1="-1.27" y1="-2.2225" x2="-2.2225" y2="-2.2225" width="0.2" layer="21"/>
+<wire x1="-2.2225" y1="-2.2225" x2="-2.2225" y2="-1.27" width="0.2" layer="21"/>
+<text x="0" y="4.445" size="1.016" layer="25" align="center">&gt;name</text>
+<text x="0" y="3.175" size="1.016" layer="27" align="center">&gt;value</text>
+</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -38110,18 +38116,18 @@ RJ45 T-568B</text>
 </technologies>
 </device>
 <device name="(MMCX_WE-MMCX_66013002121501)" package="WE-MMCX_66013002121501">
-	<connects>
-	<connect gate=".A" pin="GND" pad="GND_1 GND_2 GND_3 GND_4"/>
-	<connect gate=".A" pin="SIGNAL" pad="SIGNAL"/>
-	</connects>
-	<technologies>
-	<technology name="">
-	<attribute name="F" value="6 GHz"/>
-	<attribute name="ID" value="66013002121501"/>
-	<attribute name="Z" value="50Ω"/>
-	</technology>
-	</technologies>
-	</device>
+<connects>
+<connect gate=".A" pin="GND" pad="GND_1 GND_2 GND_3 GND_4"/>
+<connect gate=".A" pin="SIGNAL" pad="SIGNAL"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="F" value="6 GHz"/>
+<attribute name="ID" value="66013002121501"/>
+<attribute name="Z" value="50Ω"/>
+</technology>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="CG0603MLU" prefix="D">
