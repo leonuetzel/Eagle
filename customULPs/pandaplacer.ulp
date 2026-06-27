@@ -1,0 +1,102 @@
+#usage "<b>Custom pick and place data exporter for pandaplacer in combination with openpnp</b>\n"
+
+
+
+if(board) board(B)
+{
+	//	Top side
+	string fileNameBase = strsub(B.name, 0, strlen(B.name) - 4);
+	string fileNameTop = fileNameBase + ".mnt";
+	string fileNameBottom = fileNameBase + ".mnb";
+  output(fileNameTop)
+  {
+    B.elements(E)
+    {
+      int wasSmd;
+			int valid;
+			string ID;
+      
+      wasSmd = 0;
+			valid = 0;
+      
+			
+			//	Check if element has an ID, if not skip it
+			E.attributes(A)
+			{
+				if(A.name == "ID")
+				{
+					if(A.value != "")
+					{
+						valid = 1;
+						ID = A.value;
+					}
+				}
+			}
+			
+			
+      E.package.contacts(C) 
+      {
+        if(C.smd && C.smd.layer == 1)
+        {
+          wasSmd = 1;
+        }
+      }
+      
+      if(wasSmd && valid)
+      {
+        printf("%s %5.3f %5.3f %3.0f %s\n", E.name, u2mm(E.x), u2mm(E.y), E.angle, ID);
+      }
+    }
+  }
+  
+	
+	
+	
+	
+	//	Bottom side
+  output(fileNameBottom)
+	{
+		B.elements(E)
+		{
+			int wasSmd;
+			int valid;
+			string ID;
+      
+      wasSmd = 0;
+			valid = 0;
+      
+			
+			//	Check if element has an ID, if not skip it
+			E.attributes(A)
+			{
+				if(A.name == "ID")
+				{
+					if(A.value != "")
+					{
+						valid = 1;
+						ID = A.value;
+					}
+				}
+			}
+			
+			
+      E.package.contacts(C) 
+      {
+        if(C.smd && C.smd.layer == 16)
+        {
+          wasSmd = 1;
+        }
+      }
+      
+      if(wasSmd && valid)
+      {
+        printf("%s %5.3f %5.3f %3.0f %s\n", E.name, u2mm(E.x), u2mm(E.y), E.angle, ID);
+      }
+		}
+	}
+}
+else
+{
+	dlgMessageBox("\n    Start this ULP in a Board    \n");
+	exit(0);
+}
